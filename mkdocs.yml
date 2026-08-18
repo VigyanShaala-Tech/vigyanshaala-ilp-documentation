@@ -1,8 +1,6 @@
 site_name: VigyanShaala ILP — Student Guide
 site_description: Student user guide for the VigyanShaala International Learning Platform.
 site_url: https://help.vigyanshaala.com/
-repo_url: https://github.com/VigyanShaala-Tech/vigyanshaala-ilp-documentation
-repo_name: VigyanShaala-Tech/vigyanshaala-ilp-documentation
 
 theme:
   name: material
