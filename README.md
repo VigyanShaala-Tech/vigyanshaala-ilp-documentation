@@ -1,22 +1,22 @@
-# VigyanShaala ILP — Student Guide
+# vigyanshaala-ilp-documentation
 
-Student user guide for the [VigyanShaala International Learning Platform](https://mycommunity.vigyanshaala.com/).
+Documentation site for the **VigyanShaala ILP Student Guide**, built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and published to GitHub Pages.
 
-This guide covers **student / learner activities only** — Web and Android. No admin or Studio content.
+All content is under `docs/` — **Web** and **Android** student guides only (no admin or Studio content).
 
-## Preview locally
+## Local preview
 
 ```bash
 pip install -r requirements.txt
 mkdocs serve -a 127.0.0.1:2060
 ```
 
-Open <http://127.0.0.1:2060>.
+Then open <http://127.0.0.1:2060>.
 
-## Live site (GitHub Pages)
+## Deployment
 
-After you push to `main`, GitHub Actions builds and publishes the site automatically.
+Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site with MkDocs and publishes it to GitHub Pages.
 
-**URL:** <https://vigyanshaala-tech.github.io/vigyanshaala-ilp-documentation/>
+For this to work, GitHub Pages must be enabled for this repo: **Settings → Pages → Source: GitHub Actions**.
 
-One-time in GitHub: **Settings → Pages → Source: GitHub Actions**.
+Once enabled, the site is live at **https://help.vigyanshaala.com/**.
