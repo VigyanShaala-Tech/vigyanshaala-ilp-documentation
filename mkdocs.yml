@@ -1,0 +1,79 @@
+site_name: VigyanShaala ILP — Student Guide
+site_description: Student user guide for the VigyanShaala International Learning Platform.
+site_url: https://docs.vigyanshaala.com/
+
+theme:
+  name: material
+  logo: img/logo.png
+  favicon: img/favicon.ico
+  font:
+    text: Nunito Sans
+    code: Roboto Mono
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  generator: false
+  platform_url: https://mycommunity.vigyanshaala.com/
+
+not_in_nav: |
+  /index.md
+  /web.md
+  /android.md
+  /admin.md
+  /learner.md
+  /android/index.md
+  /before-you-begin.md
+  /android/before-you-begin.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - toc:
+      permalink: false
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Web:
+      - Home: logging-in.md
+      - Quick How-tos: how-tos.md
+      - Explore & Discover Programs: explore-courses.md
+      - Apply to a Program: enroll-in-a-course.md
+      - My Dashboard: my-dashboard.md
+      - Inside a Program: inside-a-course.md
+      - Achievements & Certificates: achievements-and-certificates.md
+      - Profile & Support: profile-and-support.md
+  - Android:
+      - Home: android/logging-in.md
+      - Quick How-tos: android/how-tos.md
+      - Explore Programs: android/explore-programs.md
+      - Apply to a Program: android/enroll-in-a-program.md
+      - My Learning: android/my-learning.md
+      - Inside a Program: android/inside-a-program.md
+      - Achievements: android/achievements.md
+      - Profile & Support: android/profile-and-support.md

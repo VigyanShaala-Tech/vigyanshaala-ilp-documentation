@@ -1,0 +1,432 @@
+/* VigyanShaala LMS theme — colors, hover, focus from vigyanshaala-lms-theme */
+
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-primary="custom"],
+[data-md-color-accent="custom"] {
+  --vs-brand: #69ab4a;
+  --vs-brand-dark: #5a943f;
+  --vs-brand-light: #f2f7f8;
+  --vs-text: #454545;
+  --vs-dark: #111827;
+  --vs-muted: #707070;
+  --vs-surface: #ffffff;
+  --vs-border: rgba(0, 0, 0, 0.08);
+
+  --md-primary-fg-color: #69ab4a;
+  --md-primary-fg-color--light: #7fbf60;
+  --md-primary-fg-color--dark: #5a943f;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #69ab4a;
+  --md-accent-fg-color--transparent: rgba(105, 171, 74, 0.12);
+  --md-accent-bg-color: #ffffff;
+  --md-typeset-a-color: #69ab4a;
+}
+
+body,
+input,
+button,
+select,
+textarea,
+.md-typeset {
+  font-family: "Nunito Sans", Roboto, sans-serif;
+  color: var(--vs-text);
+}
+
+/* ---- Header ---- */
+
+.md-header {
+  background-color: var(--vs-surface);
+  color: var(--vs-dark);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.10);
+  border-bottom: none;
+}
+
+.md-header__title,
+.md-header__topic {
+  color: var(--vs-dark);
+  font-weight: 600;
+}
+
+.md-header__button {
+  color: var(--vs-muted);
+}
+
+.md-header__button:not(.md-logo):hover,
+.md-header__button:not(.md-logo):focus {
+  color: var(--vs-brand);
+  opacity: 1;
+  background-color: var(--vs-brand-light);
+  border-radius: 6px;
+}
+
+.md-header__button.md-logo:hover,
+.md-header__button.md-logo:focus {
+  background-color: transparent;
+  opacity: 1;
+}
+
+.md-header__button.md-logo {
+  padding: 0.2rem 0.4rem 0.2rem 0;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2.6rem;
+  width: auto;
+}
+
+.md-header__inner {
+  gap: 0.4rem;
+}
+
+.md-header__inner .md-search {
+  margin-left: auto;
+}
+
+/* ---- Search: gray field, green focus like LMS inputs ---- */
+
+.md-search__form {
+  background-color: inherit;
+  border-radius: 6px;
+}
+
+.md-search__input {
+  background-color: rgba(0, 0, 0, 0.045);
+  color: var(--vs-dark);
+  border-radius: 6px;
+}
+
+.md-search__input::placeholder {
+  color: var(--vs-muted);
+}
+
+.md-search__input + .md-search__icon,
+.md-search__icon svg {
+  color: var(--vs-muted);
+  fill: var(--vs-muted);
+}
+
+.md-search__input:hover {
+  background-color: var(--vs-brand-light);
+}
+
+.md-search__input:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px var(--vs-brand);
+}
+
+.md-search__input:hover + .md-search__icon,
+.md-search__input:focus + .md-search__icon,
+.md-search__input:hover + .md-search__icon svg,
+.md-search__input:focus + .md-search__icon svg {
+  color: var(--vs-brand);
+  fill: var(--vs-brand);
+}
+
+.md-search-result__link:hover,
+.md-search-result__link:focus {
+  background-color: var(--vs-brand-light);
+}
+
+.md-search-result__meta,
+.md-search-result .md-typeset a {
+  color: var(--vs-brand);
+}
+
+.md-search-result .md-typeset a:hover {
+  color: var(--vs-brand-dark);
+}
+
+/* ---- Tabs ---- */
+
+.md-tabs {
+  background-color: var(--vs-surface);
+  border-bottom: 1px solid var(--vs-border);
+  color: var(--vs-text);
+}
+
+.md-tabs__link {
+  color: var(--vs-muted);
+  opacity: 1;
+}
+
+.md-tabs__link:hover {
+  color: var(--vs-dark);
+  border-bottom: 2px solid var(--vs-brand);
+}
+
+.md-tabs__link--active,
+.md-tabs__item--active .md-tabs__link {
+  color: var(--vs-dark);
+  font-weight: 600;
+  border-bottom: 2px solid var(--vs-brand);
+}
+
+/*
+ * Platform tabs (Web | Android): sidebar shows ONLY the active platform.
+ * Inactive platform section is hidden on all viewports.
+ */
+.md-nav--lifted > .md-nav__list > .md-nav__item--nested:not(.md-nav__item--active) {
+  display: none !important;
+}
+
+/* Hide the active platform's own section title (Web / Android) — tabs already show it */
+.md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link,
+.md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__container {
+  display: none !important;
+}
+
+.md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav {
+  display: block !important;
+}
+
+.md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav > .md-nav__title {
+  display: none !important;
+}
+
+/* ---- Sidebar nav: LMS hover = light green fill + dark text ---- */
+
+.md-nav__title {
+  color: var(--vs-dark);
+}
+
+.md-nav--primary .md-nav__title {
+  font-weight: 700;
+}
+
+.md-nav__item--section > .md-nav__link,
+.md-nav .md-nav__link[for] ~ .md-nav {
+  font-weight: 600;
+}
+
+.md-nav__link {
+  border-radius: 6px;
+  color: var(--vs-text) !important;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.md-nav--primary .md-nav__item .md-nav__link:hover,
+.md-nav--primary .md-nav__item .md-nav__link:focus,
+.md-sidebar--primary .md-nav__link:hover,
+.md-sidebar--primary .md-nav__link:focus {
+  background-color: var(--vs-brand-light) !important;
+  color: var(--vs-dark) !important;
+}
+
+.md-nav--primary .md-nav__item .md-nav__link--active,
+.md-nav--primary .md-nav__item .md-nav__link--active:hover,
+.md-nav--primary .md-nav__item .md-nav__link--active:focus,
+.md-sidebar--primary .md-nav__link--active,
+.md-sidebar--primary .md-nav__link--active:hover {
+  background-color: rgba(105, 171, 74, 0.14) !important;
+  color: var(--vs-brand) !important;
+  font-weight: 600;
+}
+
+.md-nav__item {
+  padding: 0 0.2rem;
+}
+
+.md-sidebar--secondary .md-nav__link,
+.md-nav--secondary .md-nav__link {
+  color: var(--vs-text) !important;
+  background-color: transparent !important;
+  font-weight: 400;
+}
+
+.md-sidebar--secondary .md-nav__link:hover,
+.md-sidebar--secondary .md-nav__link:focus,
+.md-nav--secondary .md-nav__link:hover,
+.md-nav--secondary .md-nav__link:focus {
+  background-color: var(--vs-brand-light) !important;
+  color: var(--vs-brand) !important;
+}
+
+.md-sidebar--secondary .md-nav__link--active,
+.md-nav--secondary .md-nav__link--active {
+  color: var(--vs-brand) !important;
+  font-weight: 600;
+  background-color: transparent !important;
+}
+
+.md-sidebar--secondary .md-nav__link--active:hover,
+.md-nav--secondary .md-nav__link--active:hover {
+  background-color: var(--vs-brand-light) !important;
+  color: var(--vs-brand) !important;
+}
+
+/* ---- Content links ---- */
+
+.md-typeset a:not(.md-button) {
+  color: var(--vs-brand) !important;
+  text-decoration: none;
+}
+
+.md-typeset a:not(.md-button):hover,
+.md-typeset a:not(.md-button):focus {
+  color: var(--vs-brand-dark) !important;
+  text-decoration: underline;
+}
+
+.md-typeset a:not(.md-button):visited {
+  color: var(--vs-brand);
+}
+
+/* ---- Admonitions ---- */
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 6px;
+  border-width: 0 0 0 4px;
+  box-shadow: none;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 600;
+}
+
+.md-typeset .admonition.note,
+.md-typeset details.note,
+.md-typeset .admonition.info,
+.md-typeset details.info {
+  border-color: var(--vs-brand);
+}
+
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary,
+.md-typeset .info > .admonition-title,
+.md-typeset .info > summary {
+  background-color: var(--vs-brand-light);
+}
+
+.md-typeset .admonition.success,
+.md-typeset details.success {
+  border-color: var(--vs-brand);
+}
+
+.md-typeset .success > .admonition-title,
+.md-typeset .success > summary {
+  background-color: rgba(105, 171, 74, 0.12);
+}
+
+/* ---- Home: Web or Android choice ---- */
+
+.md-content:has(.choose-platform) {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.choose-platform.grid.cards > ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.choose-platform.grid.cards > ul > li {
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+}
+
+@media (max-width: 44.9em) {
+  .choose-platform.grid.cards > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- How-to cards ---- */
+
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  border-radius: 6px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+  border-color: var(--vs-brand);
+  background-color: var(--vs-brand-light);
+  box-shadow: 0 4px 14px rgba(105, 171, 74, 0.18);
+}
+
+.md-typeset .grid.cards a:not(.md-button):hover {
+  color: var(--vs-brand-dark);
+}
+
+/* ---- Buttons: LMS 6px radius, green fill, hover opacity ---- */
+
+.md-typeset .md-button {
+  border-radius: 6px;
+  border: 1px solid var(--vs-brand);
+  padding: 9px 16px;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+  text-decoration: none !important;
+}
+
+.md-typeset a.md-button--primary,
+.md-typeset .md-button--primary {
+  background-color: var(--vs-brand);
+  border-color: var(--vs-brand);
+  color: #ffffff !important;
+}
+
+.md-typeset a.md-button--primary:hover,
+.md-typeset .md-button--primary:hover,
+.md-typeset a.md-button--primary:focus,
+.md-typeset .md-button--primary:focus {
+  background-color: var(--vs-brand);
+  border-color: var(--vs-brand);
+  color: #ffffff !important;
+  opacity: 0.8;
+}
+
+.md-typeset a.md-button:not(.md-button--primary),
+.md-typeset .md-button:not(.md-button--primary) {
+  background-color: transparent;
+  border-color: var(--vs-brand);
+  color: var(--vs-brand) !important;
+}
+
+.md-typeset a.md-button:not(.md-button--primary):hover,
+.md-typeset .md-button:not(.md-button--primary):hover,
+.md-typeset a.md-button:not(.md-button--primary):focus,
+.md-typeset .md-button:not(.md-button--primary):focus {
+  background-color: var(--vs-brand);
+  border-color: var(--vs-brand);
+  color: #ffffff !important;
+}
+
+/* ---- TOC / skip / extra chrome ---- */
+
+.md-top:hover {
+  background-color: var(--vs-brand);
+  color: #ffffff;
+}
+
+.md-footer {
+  display: none;
+}
+
+.md-typeset .headerlink,
+.md-typeset a.headerlink {
+  display: none !important;
+}
+
+.md-typeset img {
+  border: 1px solid var(--vs-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* Phone screenshots in the Android guide — same height as 01-welcome.png */
+.md-typeset img[src*="/img/android/"] {
+  display: block;
+  width: auto;
+  height: 36rem;
+  max-width: min(22rem, 100%);
+  object-fit: contain;
+  object-position: center top;
+}
