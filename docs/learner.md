@@ -3,8 +3,10 @@ hide:
   - navigation
   - toc
   - tabs
+search:
+  exclude: true
 ---
 
-# Logging In
+# Account & registration
 
-Continue to [Logging In](logging-in.md).
+Continue to [Account & registration](logging-in.md).

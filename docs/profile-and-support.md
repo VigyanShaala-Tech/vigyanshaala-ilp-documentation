@@ -1,8 +1,10 @@
 # Profile & Support
 
-Manage your profile, account, and how to get help.
+<div class="skip-to"></div>
 
 ## Update your profile {: #profile }
+
+Your **Profile** is what other people on the platform can see, and it stores your contact details. Filling missing fields raises **Profile Completion**.
 
 - Click your name (top right) → **Profile**.
 - Use **Edit** next to each field: name, WhatsApp, gender, language, About Me, social links.
@@ -14,22 +16,28 @@ Manage your profile, account, and how to get help.
 
 ## Change your profile photo {: #profile-photo }
 
+You can add or replace the photo next to your name. Use a clear photo so others can recognise you. You can also remove the photo if you prefer not to show one.
+
 - On **Profile**, click the **camera** icon → **Upload photo** or **Remove photo**.
 
 ![Profile photo menu](img/12-profile-photo.png)
 
 ---
 
-## Extended Profile Information {: #extended-profile }
+## Complete your profile details {: #extended-profile }
+
+**Extended Profile Information** is extra detail some programs ask for — for example college or personal information. Complete every section shown for your program. The list of sections can change.
 
 - Scroll to **Extended Profile Information** and complete each section shown (for example Registration, College Academic, Personal).
 - Sections vary by program.
 
-![Extended Profile Information](img/11-extended-profile.png)
+![Complete your profile details](img/11-extended-profile.png)
 
 ---
 
 ## Account settings {: #account }
+
+**Account** is where you change login details, language, and linked Google sign-in. Open it from your name in the top right.
 
 - Click your name → **Account**.
 
@@ -50,13 +58,16 @@ Manage your profile, account, and how to get help.
 
 ## Delete your account {: #delete-account }
 
+Deleting your account is **permanent**. You lose programs, progress, and certificates. Download certificates first if you still need them. Prefer **Edit** or **Reset Password** if you only need to change details.
+
 - On the Account page, scroll to **Delete My Account** and read the warning carefully.
-- Deletion is **permanent** — you lose programs, progress, and certificates. Download certificates first.
-- Prefer **Edit** or **Reset Password** if you only need to change details.
+- Confirm only if you are sure you will not need this account again.
 
 ---
 
 ## Contact support {: #contact-support }
+
+Use **Contact Us** when something does not work — for example you cannot log in, apply, or see a program. Email or phone if you prefer not to use the form.
 
 - Open [Contact Us](https://apps.mycommunity.vigyanshaala.com/public/contact){ target="_blank" } or email **support@vigyanshaala.com** / call **+91 8446846141**.
 
@@ -66,12 +77,16 @@ Manage your profile, account, and how to get help.
 
 ## FAQs and policies {: #faqs }
 
+FAQs answer common questions. Privacy Policy and Terms of Service explain how your data is used and the rules for using the site. They are also linked in the site footer.
+
 - [Our Vision](https://apps.mycommunity.vigyanshaala.com/public/story){ target="_blank" } · [Success Stories](https://apps.mycommunity.vigyanshaala.com/public/team){ target="_blank" } · [Our Supporters](https://apps.mycommunity.vigyanshaala.com/public/supporter){ target="_blank" } · [FAQs](https://apps.mycommunity.vigyanshaala.com/public/faq){ target="_blank" }
 - **Privacy Policy** and **Terms of Service** are linked in the site footer.
 
 ---
 
 ## Sign out {: #sign-out }
+
+**Sign out** ends your session on this browser. Your account stays active. You can log in again any time with the same email and password (or Google).
 
 - Click your name → **Sign out**.
 

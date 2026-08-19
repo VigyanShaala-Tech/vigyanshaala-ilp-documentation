@@ -3,6 +3,8 @@ hide:
   - navigation
   - toc
   - tabs
+search:
+  exclude: true
 ---
 
 # How do you want to learn?
@@ -17,7 +19,7 @@ Choose **Web** or the **Android app**.
 
     Use the website student guide.
 
-    [Continue on the web](logging-in.md){ .md-button }
+    [Continue on the web](help-center.md){ .md-button }
 
 -   :material-android:{ .lg .middle } **Android app**
 
@@ -25,6 +27,6 @@ Choose **Web** or the **Android app**.
 
     Student steps for the phone app.
 
-    [Open Android guide](android/logging-in.md){ .md-button }
+    [Open Android guide](android/help-center.md){ .md-button }
 
 </div>

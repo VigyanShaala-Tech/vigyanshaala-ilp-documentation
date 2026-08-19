@@ -3,6 +3,8 @@ hide:
   - navigation
   - toc
   - tabs
+search:
+  exclude: true
 ---
 
 # Admin

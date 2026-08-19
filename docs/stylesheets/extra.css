@@ -138,6 +138,31 @@ textarea,
   color: var(--vs-brand-dark);
 }
 
+.search-platform {
+  display: inline-block;
+  margin-right: 0.45rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 4px;
+  background: var(--vs-brand-light);
+  color: var(--vs-brand-dark);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+}
+
+.sr-search-terms {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 /* ---- Tabs ---- */
 
 .md-tabs {
@@ -311,6 +336,180 @@ textarea,
   background-color: rgba(105, 171, 74, 0.12);
 }
 
+/* ---- Help center home (Coursera-style) ---- */
+
+.md-content:has(.help-center-cards) {
+  max-width: 56rem;
+  margin-inline: auto;
+}
+
+.help-center-cards.grid.cards > ul {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.help-center-cards.grid.cards > ul > li {
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1rem;
+}
+
+.help-center-cards.grid.cards > ul > li p {
+  flex-grow: 1;
+}
+
+@media (max-width: 59.9em) {
+  .help-center-cards.grid.cards > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 44.9em) {
+  .help-center-cards.grid.cards > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Category hub pages (2-column link lists) ---- */
+
+.md-content:has(.category-hub) {
+  max-width: 52rem;
+}
+
+.category-hub {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 2.5rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.category-block h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--vs-dark);
+  margin: 0 0 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.category-block ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.category-block li {
+  margin-bottom: 0.45rem;
+  line-height: 1.5;
+}
+
+.category-block li a {
+  color: var(--vs-brand) !important;
+  font-weight: 500;
+}
+
+@media (max-width: 44.9em) {
+  .category-hub {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ---- Coursera-style: no left sidebar on help, category, or article pages ---- */
+
+body:has(.help-center-cards) .md-sidebar--primary,
+body:has(.category-hub) .md-sidebar--primary,
+body:has(.skip-to) .md-sidebar--primary {
+  display: none;
+}
+
+body:has(.help-center-cards) .md-content,
+body:has(.category-hub) .md-content,
+body:has(.skip-to) .md-content {
+  margin-left: 0;
+}
+
+body:has(.help-center-cards) .md-content__inner,
+body:has(.category-hub) .md-content__inner {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+/* ---- Section focus (hash links show one section only) ---- */
+
+body.section-focus .md-sidebar--secondary {
+  display: none;
+}
+
+/* Category hubs already list topics — do not show Skip to on articles */
+.skip-to {
+  display: none !important;
+}
+
+.section-hidden {
+  display: none !important;
+}
+
+/* ---- Article pages: Skip to instead of right TOC ---- */
+
+body:has(.skip-to) .md-sidebar--secondary {
+  display: none;
+}
+
+body:has(.skip-to) .md-nav__path {
+  display: none;
+}
+
+body:has(.skip-to) .md-content__inner {
+  max-width: 48rem;
+}
+
+/* ---- Coursera-style breadcrumbs (in content) ---- */
+
+.article-breadcrumbs {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  color: var(--vs-muted);
+}
+
+.article-breadcrumbs a {
+  color: var(--vs-brand) !important;
+  font-weight: 500;
+  text-decoration: none !important;
+}
+
+.article-breadcrumbs a:hover {
+  text-decoration: underline !important;
+}
+
+.article-breadcrumbs .sep {
+  margin: 0 0.4rem;
+  color: var(--vs-muted);
+}
+
+.article-breadcrumbs .current {
+  color: var(--vs-dark);
+  font-weight: 500;
+}
+
+/* ---- Sidebar breadcrumbs (category pages) ---- */
+
+.md-nav__path {
+  font-size: 0.75rem;
+  color: var(--vs-muted);
+}
+
+.md-nav__path .md-nav__link {
+  color: var(--vs-muted) !important;
+}
+
+.md-nav__path .md-nav__link:hover {
+  color: var(--vs-brand) !important;
+}
+
 /* ---- Home: Web or Android choice ---- */
 
 .md-content:has(.choose-platform) {
@@ -399,12 +598,66 @@ textarea,
   color: #ffffff !important;
 }
 
-/* ---- TOC / skip / extra chrome ---- */
+/* ---- Back to top (bottom of every page) ---- */
 
-.md-top:hover {
-  background-color: var(--vs-brand);
+.md-top {
+  display: none !important;
+}
+
+.page-back-to-top {
+  margin: 3rem 0 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--vs-border);
+  text-align: center;
+}
+
+.page-back-to-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--vs-border);
+  border-radius: 999px;
+  background: var(--vs-surface);
+  color: var(--vs-dark) !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-decoration: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.page-back-to-top-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: rgba(105, 171, 74, 0.14);
+  color: var(--vs-brand);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.page-back-to-top-link:hover,
+.page-back-to-top-link:focus {
+  border-color: var(--vs-brand);
+  background: var(--vs-brand-light);
+  color: var(--vs-brand-dark) !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(105, 171, 74, 0.18);
+}
+
+.page-back-to-top-link:hover .page-back-to-top-icon,
+.page-back-to-top-link:focus .page-back-to-top-icon {
+  background: var(--vs-brand);
   color: #ffffff;
 }
+
+/* ---- TOC / skip / extra chrome ---- */
 
 .md-footer {
   display: none;
