@@ -18,18 +18,33 @@ theme:
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
-    - navigation.top
     - navigation.tracking
+    - navigation.path
     - navigation.indexes
     - navigation.instant
     - navigation.instant.progress
     - toc.follow
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
+
+plugins:
+  - search:
+      lang: en
+      pipeline:
+        - stemmer
+        - stopWordFilter
+        - trimmer
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/breadcrumbs.js
+  - javascripts/section-focus.js
+  - javascripts/back-to-top.js
+  - javascripts/search.js
 
 extra:
   generator: false
@@ -44,6 +59,23 @@ not_in_nav: |
   /android/index.md
   /before-you-begin.md
   /android/before-you-begin.md
+  /how-tos.md
+  /android/how-tos.md
+  /logging-in.md
+  /explore-courses.md
+  /enroll-in-a-course.md
+  /my-dashboard.md
+  /inside-a-course.md
+  /achievements-and-certificates.md
+  /profile-and-support.md
+  /android/app-install-and-updates.md
+  /android/logging-in.md
+  /android/explore-programs.md
+  /android/enroll-in-a-program.md
+  /android/my-learning.md
+  /android/inside-a-program.md
+  /android/achievements.md
+  /android/profile-and-support.md
 
 markdown_extensions:
   - admonition
@@ -60,20 +92,21 @@ markdown_extensions:
 
 nav:
   - Web:
-      - Home: logging-in.md
-      - Quick How-tos: how-tos.md
-      - Explore & Discover Programs: explore-courses.md
-      - Apply to a Program: enroll-in-a-course.md
-      - My Dashboard: my-dashboard.md
-      - Inside a Program: inside-a-course.md
-      - Achievements & Certificates: achievements-and-certificates.md
-      - Profile & Support: profile-and-support.md
+      - Help Center: help-center.md
+      - Account & registration: categories/logging-in.md
+      - Explore & Discover Programs: categories/explore-programs.md
+      - Apply to a Program: categories/apply.md
+      - My Dashboard: categories/dashboard.md
+      - Inside a Program: categories/inside-program.md
+      - Achievements & Certificates: categories/achievements.md
+      - Profile & Support: categories/profile.md
   - Android:
-      - Home: android/logging-in.md
-      - Quick How-tos: android/how-tos.md
-      - Explore Programs: android/explore-programs.md
-      - Apply to a Program: android/enroll-in-a-program.md
-      - My Learning: android/my-learning.md
-      - Inside a Program: android/inside-a-program.md
-      - Achievements: android/achievements.md
-      - Profile & Support: android/profile-and-support.md
+      - Help Center: android/help-center.md
+      - App Install & Updates: android/categories/app-install.md
+      - Account & registration: android/categories/logging-in.md
+      - Explore Programs: android/categories/explore-programs.md
+      - Apply to a Program: android/categories/apply.md
+      - My Learning: android/categories/my-learning.md
+      - Inside a Program: android/categories/inside-program.md
+      - Achievements: android/categories/achievements.md
+      - Profile & Support: android/categories/profile.md

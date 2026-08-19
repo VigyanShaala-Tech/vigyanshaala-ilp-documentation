@@ -1,22 +1,27 @@
+---
+search:
+  exclude: true
+---
+
 # Quick How-tos
 
 Need to do one specific thing? Click a question below to jump straight to the steps.
 
-## Logging in {: #howtos-login }
+## Account & registration {: #howtos-login }
 
 <div class="grid cards" markdown>
 
--   :material-account-plus:{ .lg .middle } **How do I use Public Signup?**
+-   :material-account-plus:{ .lg .middle } **How do I create my account?**
 
     ---
 
-    [:octicons-arrow-right-24: Public Signup](logging-in.md#create-account)
+    [:octicons-arrow-right-24: Create your account](logging-in.md#create-account)
 
--   :material-cellphone:{ .lg .middle } **How do I log in with mobile?**
+-   :material-cellphone:{ .lg .middle } **How do I log in with my phone number?**
 
     ---
 
-    [:octicons-arrow-right-24: Log in with mobile](logging-in.md#log-in-mobile)
+    [:octicons-arrow-right-24: Log in with your WhatsApp number](logging-in.md#log-in-mobile)
 
 -   :material-lock-reset:{ .lg .middle } **How do I reset my password?**
 
@@ -24,17 +29,11 @@ Need to do one specific thing? Click a question below to jump straight to the st
 
     [:octicons-arrow-right-24: Reset password](logging-in.md#reset-password)
 
--   :material-qrcode:{ .lg .middle } **How do I join with Open Cohort (QR Code)?**
+-   :material-qrcode:{ .lg .middle } **How do I register with a QR code/link?**
 
     ---
 
-    [:octicons-arrow-right-24: Open Cohort (QR Code)](enroll-in-a-course.md#cohort-enroll)
-
--   :material-account-group:{ .lg .middle } **How do I join with Curriculum Cohort?**
-
-    ---
-
-    [:octicons-arrow-right-24: Curriculum Cohort](logging-in.md#curriculum-cohort)
+    [:octicons-arrow-right-24: Register with a QR code/link](enroll-in-a-course.md#cohort-enroll)
 
 -   :material-message-text:{ .lg .middle } **How do I verify my WhatsApp number?**
 
@@ -90,11 +89,11 @@ Need to do one specific thing? Click a question below to jump straight to the st
 
     [:octicons-arrow-right-24: Apply Now](enroll-in-a-course.md#self-enroll)
 
--   :material-qrcode:{ .lg .middle } **How do I join with Open Cohort (QR Code)?**
+-   :material-qrcode:{ .lg .middle } **How do I register with a QR code/link?**
 
     ---
 
-    [:octicons-arrow-right-24: Open Cohort (QR Code)](enroll-in-a-course.md#cohort-enroll)
+    [:octicons-arrow-right-24: Register with a QR code/link](enroll-in-a-course.md#cohort-enroll)
 
 -   :material-ticket-confirmation:{ .lg .middle } **How do I use a registration code?**
 
@@ -108,11 +107,11 @@ Need to do one specific thing? Click a question below to jump straight to the st
 
     [:octicons-arrow-right-24: View Course](enroll-in-a-course.md#already-enrolled)
 
--   :material-alert:{ .lg .middle } **Why can I not apply?**
+-   :material-alert:{ .lg .middle } **Why can I not join?**
 
     ---
 
-    [:octicons-arrow-right-24: When you cannot apply](enroll-in-a-course.md#enrollment-blocked)
+    [:octicons-arrow-right-24: If you cannot join](enroll-in-a-course.md#enrollment-blocked)
 
 </div>
 
@@ -198,7 +197,7 @@ The learning screen may still say **Course**. That is the program you joined.
 
     ---
 
-    [:octicons-arrow-right-24: Live-Session](inside-a-course.md#live-session-tab)
+    [:octicons-arrow-right-24: Live sessions](inside-a-course.md#live-session-tab)
 
 -   :material-forum:{ .lg .middle } **How do I use Discussion, Handouts, Updates, or Bookmarks?**
 
@@ -248,7 +247,7 @@ The learning screen may still say **Course**. That is the program you joined.
 
     [:octicons-arrow-right-24: Profile photo](profile-and-support.md#profile-photo)
 
--   :material-form-select:{ .lg .middle } **How do I complete Extended Profile Information?**
+-   :material-form-select:{ .lg .middle } **How do I complete my profile details?**
 
     ---
 

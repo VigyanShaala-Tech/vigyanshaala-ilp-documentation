@@ -1,12 +1,14 @@
-# Logging In
+# Account & registration
 
-Start from the [home page](https://mycommunity.vigyanshaala.com/){ target="_blank" }. Click **Log In**. Enter your **email** and **password**. You go to **My Dashboard**.
+<div class="skip-to"></div>
 
-| Way | What it means |
-|-----|----------------|
-| [Open Cohort (QR Code)](#cohort-registration) | Scan a QR code and fill the form |
-| [Public Signup](#create-account) | Create your account on the register page |
-| [Curriculum Cohort (pre-registration through partners)](#curriculum-cohort) | A partner created your account and sent you an email ID and password |
+## Log in with your email id and password {: #log-in }
+
+<p class="sr-search-terms">login sign-in signin email password</p>
+
+Use **Log In** when you already have an account. You need the same **email** and **password** you used when you signed up.
+
+Start from the [home page](https://mycommunity.vigyanshaala.com/){ target="_blank" }. Click **Log In**. Enter your email and password, then click **Log In**. After a successful sign-in you go to **My Dashboard**.
 
 ![Home page with Log In](img/03-home-log-in.png)
 
@@ -14,7 +16,34 @@ Start from the [home page](https://mycommunity.vigyanshaala.com/){ target="_blan
 
 ![Log In with email](img/05-log-in-email.png)
 
-## Public Signup {: #create-account }
+You can also [log in with Google](#log-in-google) or with your [WhatsApp number](#log-in-mobile) from the same page.
+
+---
+
+## Log in with Google SSO {: #log-in-google }
+
+<p class="sr-search-terms">gmail sso google login continue with google</p>
+
+**Continue with Google** lets you sign in with a Google account (such as Gmail) instead of typing a password. Use the same Google account every time so you return to the same dashboard.
+
+- On the Log In or Sign Up page, click **Continue with Google**.
+
+![Continue with Google](img/47-continue-with-google.png)
+
+- If your Google account is already listed, click it.
+- If it is not listed, click **Use another account** and add your Google account.
+
+![Use another account](img/48-google-use-another-account.png)
+
+- Allow access. You go to **My Dashboard** after Google confirms your sign-in.
+
+---
+
+## Create your account {: #create-account }
+
+<p class="sr-search-terms">signup sign-up register create account</p>
+
+Create an account if you are new. You need your **full name**, **email**, and a **password**. Choose **Student** (not Mentor). After you create the account, check your email if the site asks you to activate it.
 
 ![Home page with Sign Up](img/02-home-sign-up.png)
 
@@ -35,15 +64,21 @@ After your first sign-in you may be prompted to [verify your WhatsApp number](#w
 
 ---
 
-## Log in with mobile {: #log-in-mobile }
+## Log in with your WhatsApp number {: #log-in-mobile }
 
-Open the Log In page, choose the **Mobile** tab, enter your number, and tap **Send OTP**.
+<p class="sr-search-terms">otp whatsapp phone mobile login</p>
 
-![Log In with mobile](img/06-log-in-mobile.png)
+Use the **Mobile** tab if you prefer to sign in with your WhatsApp number instead of email. A one-time code (OTP) is sent to that number. You must use a number that can receive WhatsApp messages.
+
+Open the Log In page, choose the **Mobile** tab, enter your WhatsApp number, and tap **Send OTP**. Enter the code you receive, then continue to **My Dashboard**.
+
+![Log in with your WhatsApp number](img/06-log-in-mobile.png)
 
 ---
 
 ## Verify your WhatsApp number {: #whatsapp-verify }
+
+After you sign in, the site may ask you to confirm your WhatsApp number. This helps you get reminders for live sessions. You can verify now, or skip and do it later from Profile.
 
 After sign-in, **My Dashboard** may show **Verify Your WhatsApp Number**. Click **Verify Now** or **Skip for now**.
 
@@ -58,9 +93,13 @@ After sign-in, **My Dashboard** may show **Verify Your WhatsApp Number**. Click 
 
 ## Reset a forgotten password {: #reset-password }
 
+<p class="sr-search-terms">forgot password recover reset</p>
+
+If you cannot sign in, use **Forgot Password?** on the Log In page. A reset link is sent to your email. Choose a new password, then log in with it. The new password must be at least 8 characters with 1 letter and 1 number.
+
 - On the [Log In](https://mycommunity.vigyanshaala.com/login){ target="_blank" } page (**Email** tab), click **Forgot Password?**.
 - Enter your email and click **Send Reset Link →**.
-- Open the email, click the reset link, enter a new password (at least 8 characters with 1 letter and 1 number), and click **Reset Password**.
+- Open the email, click the reset link, enter a new password, and click **Reset Password**.
 - Return to Log In and sign in.
 
 ![Forgot Password](img/37-forgot-password.png)
@@ -71,15 +110,3 @@ After sign-in, **My Dashboard** may show **Verify Your WhatsApp Number**. Click 
 
 !!! note "Already logged in?"
     You can also reset from [Account](profile-and-support.md#account) → **Reset Password**.
-
----
-
-## Open Cohort (QR Code) {: #cohort-registration }
-
-Your teacher shows a **QR code**. Scan it to open the enrollment form — this can create your account and enroll you, or ask you to sign in first if you already have one.
-
----
-
-## Curriculum Cohort (pre-registration through partners) {: #curriculum-cohort }
-
-A partner sends you an **email ID** and **password**. Open the [home page](https://mycommunity.vigyanshaala.com/){ target="_blank" }, click **Log In**, enter those details, and click **Log In →**.

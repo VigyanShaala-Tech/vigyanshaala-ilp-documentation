@@ -1,22 +1,27 @@
+---
+search:
+  exclude: true
+---
+
 # Quick How-tos
 
 Need to do one specific thing? Tap a question below to jump straight to the steps.
 
-## Logging in {: #howtos-login }
+## Account & registration {: #howtos-login }
 
 <div class="grid cards" markdown>
 
--   :material-account-plus:{ .lg .middle } **How do I use Public Signup?**
+-   :material-account-plus:{ .lg .middle } **How do I create my account?**
 
     ---
 
-    [:octicons-arrow-right-24: Public Signup](logging-in.md#create-account)
+    [:octicons-arrow-right-24: Create your account](logging-in.md#create-account)
 
 -   :material-login:{ .lg .middle } **How do I log in?**
 
     ---
 
-    [:octicons-arrow-right-24: Log in](logging-in.md#log-in)
+    [:octicons-arrow-right-24: Log in with your email id and password](logging-in.md#log-in-email)
 
 -   :material-lock-reset:{ .lg .middle } **How do I reset my password?**
 
@@ -24,17 +29,11 @@ Need to do one specific thing? Tap a question below to jump straight to the step
 
     [:octicons-arrow-right-24: Forgot password](logging-in.md#reset-password)
 
--   :material-qrcode:{ .lg .middle } **How do I join with Open Cohort (QR Code)?**
+-   :material-qrcode:{ .lg .middle } **How do I register with a QR code/link?**
 
     ---
 
-    [:octicons-arrow-right-24: Open Cohort (QR Code)](logging-in.md#cohort-registration)
-
--   :material-account-group:{ .lg .middle } **How do I join with Curriculum Cohort?**
-
-    ---
-
-    [:octicons-arrow-right-24: Curriculum Cohort](logging-in.md#curriculum-cohort)
+    [:octicons-arrow-right-24: Register with a QR code/link](logging-in.md#cohort-registration)
 
 -   :material-logout:{ .lg .middle } **How do I log out?**
 
@@ -72,11 +71,11 @@ Need to do one specific thing? Tap a question below to jump straight to the step
 
     [:octicons-arrow-right-24: Apply Now](enroll-in-a-program.md#self-enroll)
 
--   :material-qrcode:{ .lg .middle } **How do I join with Open Cohort (QR Code)?**
+-   :material-qrcode:{ .lg .middle } **How do I register with a QR code/link?**
 
     ---
 
-    [:octicons-arrow-right-24: Open Cohort (QR Code)](logging-in.md#cohort-registration)
+    [:octicons-arrow-right-24: Register with a QR code/link](logging-in.md#cohort-registration)
 
 -   :material-ticket-confirmation:{ .lg .middle } **How do I use a registration code?**
 
@@ -90,11 +89,11 @@ Need to do one specific thing? Tap a question below to jump straight to the step
 
     [:octicons-arrow-right-24: View course](enroll-in-a-program.md#already-enrolled)
 
--   :material-alert:{ .lg .middle } **Why can I not apply?**
+-   :material-alert:{ .lg .middle } **Why can I not join?**
 
     ---
 
-    [:octicons-arrow-right-24: When you cannot apply](enroll-in-a-program.md#enrollment-blocked)
+    [:octicons-arrow-right-24: If you cannot join](enroll-in-a-program.md#enrollment-blocked)
 
 </div>
 
