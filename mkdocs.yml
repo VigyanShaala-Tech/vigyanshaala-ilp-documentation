@@ -37,6 +37,9 @@ plugins:
         - stopWordFilter
         - trimmer
 
+hooks:
+  - hooks.py
+
 extra_css:
   - stylesheets/extra.css
 
@@ -45,6 +48,7 @@ extra_javascript:
   - javascripts/section-focus.js
   - javascripts/back-to-top.js
   - javascripts/search.js
+  - javascripts/pdf-download.js
 
 extra:
   generator: false
@@ -69,6 +73,7 @@ not_in_nav: |
   /submit-template-assignment.md
   /achievements-and-certificates.md
   /profile-and-support.md
+  /download-pdf.md
   /android/app-install-and-updates.md
   /android/logging-in.md
   /android/explore-programs.md
@@ -88,6 +93,9 @@ markdown_extensions:
       permalink: false
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: docs
+      check_paths: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg

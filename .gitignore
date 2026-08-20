@@ -1,2 +1,5 @@
 site/
 .venv/
+__pycache__/
+.pdf-cache/
+docs/VigyanShaala-ILP-Student-Guide.pdf

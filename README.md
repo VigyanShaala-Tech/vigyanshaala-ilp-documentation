@@ -8,6 +8,7 @@ All content is under `docs/` — **Web** and **Android** student guides only (no
 
 ```bash
 pip install -r requirements.txt
+playwright install chromium
 mkdocs serve -a 127.0.0.1:2060
 ```
 
