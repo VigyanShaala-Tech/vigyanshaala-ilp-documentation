@@ -84,6 +84,12 @@ textarea,
   margin-left: auto;
 }
 
+@media screen and (max-width: 59.984375em) {
+  .md-header__inner .md-search {
+    margin-left: 0;
+  }
+}
+
 /* ---- Search: gray field, green focus like LMS inputs ---- */
 
 .md-search__form {
@@ -417,14 +423,28 @@ textarea,
   }
 }
 
-/* ---- Coursera-style: no left sidebar on help, category, or article pages ---- */
+/* ---- Coursera-style: no left sidebar on home, help, category, or article pages ---- */
 
+body:has(.choose-platform) .md-sidebar--primary,
+body:has(.choose-platform) .md-sidebar--secondary,
 body:has(.help-center-cards) .md-sidebar--primary,
 body:has(.category-hub) .md-sidebar--primary,
 body:has(.skip-to) .md-sidebar--primary {
+  display: none !important;
+}
+
+.md-sidebar[hidden] {
+  display: none !important;
+}
+
+body:has(.choose-platform) .md-header__button[for="__drawer"],
+body:has(.help-center-cards) .md-header__button[for="__drawer"],
+body:has(.category-hub) .md-header__button[for="__drawer"],
+body:has(.skip-to) .md-header__button[for="__drawer"] {
   display: none;
 }
 
+body:has(.choose-platform) .md-content,
 body:has(.help-center-cards) .md-content,
 body:has(.category-hub) .md-content,
 body:has(.skip-to) .md-content {
@@ -533,6 +553,11 @@ body:has(.skip-to) .md-content__inner {
 @media (max-width: 44.9em) {
   .choose-platform.grid.cards > ul {
     grid-template-columns: 1fr;
+  }
+
+  .choose-platform.grid.cards > ul > li {
+    min-height: 0;
+    padding: 1.15rem 1rem;
   }
 }
 
@@ -706,6 +731,70 @@ body:has(.skip-to) .md-content__inner {
 .header-download-pdf:focus {
   background: var(--vs-brand);
   color: #ffffff !important;
+}
+
+/* ---- Phone / small tablet ---- */
+
+@media screen and (max-width: 76.234375em) {
+  .md-tabs:not([hidden]) {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 44.9em) {
+  .md-header__inner {
+    gap: 0.15rem;
+  }
+
+  .md-header__button.md-logo {
+    padding-right: 0.15rem;
+  }
+
+  .md-header__button.md-logo img,
+  .md-header__button.md-logo svg {
+    height: 2rem;
+  }
+
+  .md-header__title {
+    display: none;
+  }
+
+  .header-download-pdf {
+    margin-right: 0.15rem;
+    padding: 0.28rem 0.5rem;
+    font-size: 0.68rem;
+  }
+
+  .md-typeset img[src*="/img/android/"] {
+    height: auto;
+    max-height: 22rem;
+    max-width: min(16rem, 100%);
+  }
+
+  .md-content:has(.choose-platform),
+  .md-content:has(.help-center-cards),
+  .md-content:has(.category-hub) {
+    max-width: none;
+  }
+
+  body:has(.help-center-cards) .md-content__inner,
+  body:has(.category-hub) .md-content__inner,
+  body:has(.skip-to) .md-content__inner {
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 29.984375em) {
+  .header-download-pdf {
+    font-size: 0;
+    padding: 0.3rem 0.45rem;
+  }
+
+  .header-download-pdf::after {
+    content: "PDF";
+    font-size: 0.68rem;
+    font-weight: 700;
+  }
 }
 
 .pdf-guide-page .skip-to,
