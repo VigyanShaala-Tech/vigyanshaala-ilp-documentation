@@ -131,6 +131,12 @@ Need to do one specific thing? Tap a question below to jump straight to the step
 
     [:octicons-arrow-right-24: Home](inside-a-program.md#home)
 
+-   :material-file-document-edit:{ .lg .middle } **How do I submit a Template based assignment?**
+
+    ---
+
+    [:octicons-arrow-right-24: Submit a Template based assignment](submit-template-assignment.md)
+
 -   :material-chart-line:{ .lg .middle } **How do I check Progress?**
 
     ---

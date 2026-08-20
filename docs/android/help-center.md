@@ -60,6 +60,14 @@ Use the **search bar** above, or choose a topic below.
 
     [:octicons-arrow-right-24: Browse topics](categories/inside-program.md)
 
+-   :material-file-document-edit:{ .lg .middle } **Submit a Template based assignment**
+
+    ---
+
+    Fill in a template based assignment in the app, then submit it.
+
+    [:octicons-arrow-right-24: Browse topics](categories/submit-assignment.md)
+
 -   :material-medal:{ .lg .middle } **Achievements**
 
     ---

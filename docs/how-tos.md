@@ -175,6 +175,12 @@ The learning screen may still say **Course**. That is the program you joined.
 
     [:octicons-arrow-right-24: Course tab](inside-a-course.md#course-tab)
 
+-   :material-file-document-edit:{ .lg .middle } **How do I submit a Template based assignment?**
+
+    ---
+
+    [:octicons-arrow-right-24: Submit a Template based assignment](submit-template-assignment.md)
+
 -   :material-chart-line:{ .lg .middle } **How do I check my progress?**
 
     ---

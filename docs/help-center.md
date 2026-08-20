@@ -52,6 +52,14 @@ Use the **search bar** above, or choose a topic below.
 
     [:octicons-arrow-right-24: Browse topics](categories/inside-program.md)
 
+-   :material-file-document-edit:{ .lg .middle } **Submit a Template based assignment**
+
+    ---
+
+    Fill in a template based assignment, submit it, and see your score.
+
+    [:octicons-arrow-right-24: Browse topics](categories/submit-assignment.md)
+
 -   :material-medal:{ .lg .middle } **Achievements & certificates**
 
     ---
