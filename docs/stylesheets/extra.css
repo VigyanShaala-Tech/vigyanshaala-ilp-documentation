@@ -683,3 +683,88 @@ body:has(.skip-to) .md-content__inner {
   object-fit: contain;
   object-position: center top;
 }
+
+/* ---- Header Download PDF ---- */
+
+.header-download-pdf {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--vs-brand);
+  border-radius: 6px;
+  color: var(--vs-brand) !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+.header-download-pdf:hover,
+.header-download-pdf:focus {
+  background: var(--vs-brand);
+  color: #ffffff !important;
+}
+
+.pdf-guide-page .skip-to,
+.pdf-guide-page .sr-search-terms,
+.pdf-guide-page .article-breadcrumbs {
+  display: none !important;
+}
+
+.pdf-kicker {
+  margin: 0 0 0.75rem;
+  color: var(--vs-brand);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media print {
+  .md-header,
+  .md-tabs,
+  .md-sidebar,
+  .md-footer,
+  .header-download-pdf,
+  .page-back-to-top,
+  .skip-to,
+  .sr-search-terms,
+  .article-breadcrumbs {
+    display: none !important;
+  }
+
+  .md-main,
+  .md-content,
+  .md-content__inner {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  .md-typeset img {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 12cm;
+    object-fit: contain;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .md-typeset img[src*="/img/android/"] {
+    max-height: 14cm;
+    max-width: 7.5cm;
+  }
+
+  .md-typeset h1 {
+    break-before: page;
+  }
+
+  .md-typeset h1:first-of-type {
+    break-before: auto;
+  }
+}
