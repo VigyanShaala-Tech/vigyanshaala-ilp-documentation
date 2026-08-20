@@ -118,10 +118,37 @@
     observer.observe(root, { childList: true, subtree: true });
   }
 
+  function closeAndResetSearch() {
+    var toggle = document.getElementById("__search");
+    if (toggle && toggle.checked) {
+      toggle.checked = false;
+      toggle.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+
+    var input = document.querySelector(".md-search__input");
+    if (input && input.value) {
+      input.value = "";
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      input.blur();
+    }
+  }
+
+  function bindResultClicks() {
+    var root = document.querySelector("[data-md-component='search-result']");
+    if (!root || root.dataset.searchClose === "true") return;
+    root.dataset.searchClose = "true";
+    root.addEventListener("click", function (event) {
+      if (!event.target.closest("a.md-search-result__link")) return;
+      closeAndResetSearch();
+    });
+  }
+
   function init() {
     setPlaceholder();
     watchResults();
     decorateResults();
+    bindResultClicks();
+    closeAndResetSearch();
   }
 
   if (typeof document$ !== "undefined") {
