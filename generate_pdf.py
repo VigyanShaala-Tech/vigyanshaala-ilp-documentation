@@ -56,6 +56,7 @@ def build_pdf(site_dir: Path, output: Path | None = None) -> Path:
             page = browser.new_page()
             page.goto(url, wait_until="load", timeout=120_000)
             page.evaluate("document.body.classList.add('pdf-guide-page')")
+            page.evaluate("document.title = 'VigyanShaala ILP — Student Guide'")
             page.emulate_media(media="print")
             page.evaluate(
                 """

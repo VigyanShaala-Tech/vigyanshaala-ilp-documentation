@@ -4,10 +4,12 @@ hide:
   - toc
 search:
   exclude: true
-title: Student guide
+title: VigyanShaala ILP — Student Guide
 ---
 
 <div class="skip-to"></div>
+
+<p class="pdf-doc-title">VigyanShaala ILP — Student Guide</p>
 
 <p class="pdf-kicker">Web</p>
 
