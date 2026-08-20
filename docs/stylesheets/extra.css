@@ -714,6 +714,14 @@ body:has(.skip-to) .md-content__inner {
   display: none !important;
 }
 
+.pdf-doc-title {
+  margin: 0 0 1.25rem;
+  color: var(--vs-dark);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
 .pdf-kicker {
   margin: 0 0 0.75rem;
   color: var(--vs-brand);
