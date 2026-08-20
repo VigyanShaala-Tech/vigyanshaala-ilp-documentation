@@ -118,6 +118,15 @@
     observer.observe(root, { childList: true, subtree: true });
   }
 
+  function unwrapSearchMarks() {
+    var content = document.querySelector(".md-content__inner.md-typeset");
+    if (!content) return;
+    content.querySelectorAll("mark").forEach(function (mark) {
+      var text = document.createTextNode(mark.textContent);
+      mark.parentNode.replaceChild(text, mark);
+    });
+  }
+
   function closeAndResetSearch() {
     var toggle = document.getElementById("__search");
     if (toggle && toggle.checked) {
@@ -130,6 +139,14 @@
       input.value = "";
       input.dispatchEvent(new Event("input", { bubbles: true }));
       input.blur();
+    }
+
+    unwrapSearchMarks();
+
+    if (window.location.search.indexOf("h=") !== -1) {
+      var url = new URL(window.location.href);
+      url.searchParams.delete("h");
+      window.history.replaceState(null, "", url.pathname + url.search + url.hash);
     }
   }
 
