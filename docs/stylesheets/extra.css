@@ -739,11 +739,30 @@ body:has(.skip-to) .md-content__inner {
   .md-tabs:not([hidden]) {
     display: block;
   }
+
+  /* Material hides the header logo on phone because it lives in the drawer.
+     We hide that drawer, so keep the logo in the header. */
+  .md-header__button.md-logo {
+    display: inline-flex !important;
+    align-items: center;
+    flex-shrink: 0;
+  }
+}
+
+body:has(.choose-platform) .md-tabs {
+  display: none !important;
+}
+
+@media screen and (max-width: 59.984375em) {
+  .md-header__inner > label[for="__search"] {
+    margin-left: auto;
+  }
 }
 
 @media screen and (max-width: 44.9em) {
   .md-header__inner {
     gap: 0.15rem;
+    min-height: 2.8rem;
   }
 
   .md-header__button.md-logo {
@@ -761,14 +780,36 @@ body:has(.skip-to) .md-content__inner {
 
   .header-download-pdf {
     margin-right: 0.15rem;
-    padding: 0.28rem 0.5rem;
+    padding: 0.35rem 0.55rem;
+    min-height: 2rem;
     font-size: 0.68rem;
+  }
+
+  .article-breadcrumbs {
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+
+  .md-typeset h1 {
+    font-size: 1.45rem;
+    line-height: 1.25;
+  }
+
+  .md-typeset img {
+    max-width: 100%;
+    height: auto;
   }
 
   .md-typeset img[src*="/img/android/"] {
     height: auto;
     max-height: 22rem;
     max-width: min(16rem, 100%);
+  }
+
+  .md-typeset .md-button {
+    display: inline-block;
+    max-width: 100%;
+    text-align: center;
   }
 
   .md-content:has(.choose-platform),
