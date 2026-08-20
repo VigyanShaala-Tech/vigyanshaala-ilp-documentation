@@ -825,19 +825,6 @@ body:has(.choose-platform) .md-tabs {
   }
 }
 
-@media screen and (max-width: 29.984375em) {
-  .header-download-pdf {
-    font-size: 0;
-    padding: 0.3rem 0.45rem;
-  }
-
-  .header-download-pdf::after {
-    content: "PDF";
-    font-size: 0.68rem;
-    font-weight: 700;
-  }
-}
-
 .pdf-guide-page .skip-to,
 .pdf-guide-page .sr-search-terms,
 .pdf-guide-page .article-breadcrumbs {
