@@ -66,6 +66,7 @@ not_in_nav: |
   /enroll-in-a-course.md
   /my-dashboard.md
   /inside-a-course.md
+  /submit-template-assignment.md
   /achievements-and-certificates.md
   /profile-and-support.md
   /android/app-install-and-updates.md
@@ -74,6 +75,7 @@ not_in_nav: |
   /android/enroll-in-a-program.md
   /android/my-learning.md
   /android/inside-a-program.md
+  /android/submit-template-assignment.md
   /android/achievements.md
   /android/profile-and-support.md
 
@@ -98,6 +100,7 @@ nav:
       - Apply to a Program: categories/apply.md
       - My Dashboard: categories/dashboard.md
       - Inside a Program: categories/inside-program.md
+      - Submit a Template based assignment: categories/submit-assignment.md
       - Achievements & Certificates: categories/achievements.md
       - Profile & Support: categories/profile.md
   - Android:
@@ -108,5 +111,6 @@ nav:
       - Apply to a Program: android/categories/apply.md
       - My Learning: android/categories/my-learning.md
       - Inside a Program: android/categories/inside-program.md
+      - Submit a Template based assignment: android/categories/submit-assignment.md
       - Achievements: android/categories/achievements.md
       - Profile & Support: android/categories/profile.md

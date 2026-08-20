@@ -27,6 +27,10 @@
         category: "Inside a Program",
         categoryPath: "../categories/inside-program/",
       },
+      "submit-template-assignment": {
+        category: "Submit a Template based assignment",
+        categoryPath: "../categories/submit-assignment/",
+      },
       "achievements-and-certificates": {
         category: "Achievements & Certificates",
         categoryPath: "../categories/achievements/",
@@ -56,6 +60,10 @@
       "inside-a-program": {
         category: "Inside a Program",
         categoryPath: "../categories/inside-program/",
+      },
+      "submit-template-assignment": {
+        category: "Submit a Template based assignment",
+        categoryPath: "../categories/submit-assignment/",
       },
       achievements: {
         category: "Achievements",
