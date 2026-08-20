@@ -20,4 +20,4 @@ Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site wit
 
 For this to work, GitHub Pages must be enabled for this repo: **Settings → Pages → Source: GitHub Actions**.
 
-Once enabled, the site is live at **https://help.vigyanshaala.com/**.
+Once enabled, the site is live at **https://help.mycommunity.vigyanshaala.com/**.
