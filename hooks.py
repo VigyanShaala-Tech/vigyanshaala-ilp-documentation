@@ -36,7 +36,10 @@ def _admin_md_href(match):
 
 
 def _warn_missing_search_terms(markdown, page):
-    """Keep hashed article sections findable in search when new H2s are added."""
+    """Keep hashed admin article sections findable in search when new H2s are added."""
+    src = page.file.src_uri.replace("\\", "/")
+    if not src.startswith("admin/"):
+        return
     if "skip-to" not in markdown:
         return
     log = logging.getLogger("mkdocs.plugins")
