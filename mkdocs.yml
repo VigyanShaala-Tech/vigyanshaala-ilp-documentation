@@ -31,8 +31,10 @@ theme:
 plugins:
   - search:
       lang: en
+      # No stemmer: Material adds trailing * to queries, which skips stemming
+      # and then misses indexed stems (certificate* vs certific, install* vs instal).
+      separator: '[\s\-,:!=\[\]()"/<>]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
       pipeline:
-        - stemmer
         - stopWordFilter
         - trimmer
 
@@ -43,6 +45,8 @@ extra_css:
   - stylesheets/extra.css
 
 extra_javascript:
+  - javascripts/site-scope.js
+  - javascripts/admin-redirects.js
   - javascripts/breadcrumbs.js
   - javascripts/section-focus.js
   - javascripts/back-to-top.js
@@ -55,9 +59,26 @@ extra:
 
 not_in_nav: |
   /index.md
+  /admin.md
   /web.md
   /android.md
-  /admin.md
+  /tas-admin.md
+  /analytics.md
+  /admin/reach-control-hub.md
+  /admin/dashboard.md
+  /admin/user-management.md
+  /admin/course-management.md
+  /admin/certificate-manage.md
+  /admin/cohort-manage-form.md
+  /admin/rule-engine.md
+  /admin/badges-management.md
+  /admin/navigation.md
+  /admin/tas-guide.md
+  /admin/analytics-guide.md
+  /admin/studio-guide.md
+  /admin/instructor-guide.md
+  /admin/categories/tas-admin.md
+  /admin/categories/analytics.md
   /learner.md
   /android/index.md
   /before-you-begin.md
@@ -73,6 +94,7 @@ not_in_nav: |
   /achievements-and-certificates.md
   /profile-and-support.md
   /download-pdf.md
+  /download-admin-pdf.md
   /android/app-install-and-updates.md
   /android/logging-in.md
   /android/explore-programs.md
@@ -121,3 +143,21 @@ nav:
       - Submit a Template based assignment: android/categories/submit-assignment.md
       - Achievements: android/categories/achievements.md
       - Profile & Support: android/categories/profile.md
+  - Admin:
+      - Help Center: admin-guide.md
+      - Control Hub: admin/control-hub.md
+      - How to reach Control Hub: admin/categories/reach-control-hub.md
+      - Dashboard: admin/categories/dashboard.md
+      - User Management: admin/categories/user-management.md
+      - Course Management: admin/categories/course-management.md
+      - Certificate Manage: admin/categories/certificate-manage.md
+      - Cohort Manage Form: admin/categories/cohort-manage-form.md
+      - Rule Engine: admin/categories/rule-engine.md
+      - Badges Management: admin/categories/badges-management.md
+      - NAVIGATION: admin/categories/navigation.md
+      - TAS Admin panel: admin/tas-admin.md
+      - Analytics: admin/analytics.md
+      - Studio: admin/studio.md
+      - Studio overview: admin/categories/studio-overview.md
+      - Manage library: admin/categories/studio-libraries.md
+      - Instructor dashboard (LMS): admin/instructor.md

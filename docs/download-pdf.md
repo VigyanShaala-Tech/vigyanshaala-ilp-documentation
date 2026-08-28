@@ -29,7 +29,9 @@ title: VigyanShaala ILP — Student Guide
 
 --8<-- "profile-and-support.md"
 
-# Android app
+<div class="pdf-android-start">
+<p class="pdf-kicker">Android</p>
+</div>
 
 --8<-- "android/app-install-and-updates.md"
 

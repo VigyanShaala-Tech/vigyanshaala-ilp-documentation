@@ -13,4 +13,4 @@ The Android student guide is ready.
 
 [Open the Android Student Guide](android/logging-in.md){ .md-button .md-button--primary }
 
-Or go back to [choose Web or Android](index.md).
+Or go back to [choose Web, Android, or Admin](index.md).

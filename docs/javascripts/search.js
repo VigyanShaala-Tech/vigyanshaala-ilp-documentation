@@ -1,26 +1,29 @@
 /**
  * Help Center search:
- * - keep Web and Android results on the matching guide
+ * - keep Web, Android, and Admin results on the matching guide
  * - open the matching article section (hash), not the whole page
- * - label results so Web vs Android is clear
+ * - label results so Web vs Android vs Admin is clear
  */
 (function () {
   "use strict";
 
   var PLACEHOLDER = "Search for help";
+  var ADMIN_PLACEHOLDER = "Search admin help";
 
   function setPlaceholder() {
     var input = document.querySelector(".md-search__input");
     if (input) {
-      input.setAttribute("placeholder", PLACEHOLDER);
-      input.setAttribute("aria-label", PLACEHOLDER);
+      var text = currentPlatform() === "admin" ? ADMIN_PLACEHOLDER : PLACEHOLDER;
+      input.setAttribute("placeholder", text);
+      input.setAttribute("aria-label", text);
     }
   }
 
   function currentPlatform() {
     var parts = window.location.pathname.replace(/\/$/, "").split("/").filter(Boolean);
-    if (!parts.length) return "all";
+    if (!parts.length) return "student";
     if (parts[0] === "android") return "android";
+    if (parts[0] === "admin-guide" || parts[0] === "admin") return "admin";
     return "web";
   }
 
@@ -39,7 +42,12 @@
     return /(^|\/)android\//.test(path);
   }
 
+  function isAdminPath(path) {
+    return /(^|\/)admin-guide(\/|$)/.test(path) || /(^|\/)admin(\/|$)/.test(path);
+  }
+
   function platformOf(path) {
+    if (isAdminPath(path)) return "admin";
     return isAndroidPath(path) ? "android" : "web";
   }
 
@@ -47,7 +55,8 @@
     if (!heading || heading.querySelector(".search-platform")) return;
     var badge = document.createElement("span");
     badge.className = "search-platform";
-    badge.textContent = platform === "android" ? "Android" : "Web";
+    badge.textContent =
+      platform === "android" ? "Android" : platform === "admin" ? "Admin" : "Web";
     heading.insertBefore(badge, heading.firstChild);
   }
 
@@ -67,13 +76,20 @@
       }
 
       var itemPlatform = platformOf(linkPath(links[0]));
-      if (platform !== "all" && itemPlatform !== platform) {
+      var allow = false;
+      if (platform === "admin") {
+        allow = itemPlatform === "admin";
+      } else if (platform === "android") {
+        allow = itemPlatform === "android";
+      } else if (platform === "web") {
+        allow = itemPlatform === "web";
+      } else {
+        allow = itemPlatform === "web" || itemPlatform === "android";
+      }
+      if (!allow) {
         item.hidden = true;
         return;
       }
-
-      item.hidden = false;
-      visible += 1;
 
       var hashed = links.filter(function (link) {
         return (link.getAttribute("href") || "").indexOf("#") !== -1;
@@ -83,12 +99,34 @@
       });
 
       if (hashed.length && unhashed.length) {
+        var query = ((document.querySelector(".md-search__input") || {}).value || "")
+          .trim()
+          .toLowerCase();
+        var best = hashed[0];
+        if (query) {
+          hashed.forEach(function (link) {
+            var title = (link.textContent || "").trim().toLowerCase();
+            if (title && title.indexOf(query) !== -1) best = link;
+          });
+        }
         unhashed.forEach(function (link) {
-          link.setAttribute("href", hashed[0].getAttribute("href"));
+          link.setAttribute("href", best.getAttribute("href"));
         });
       }
 
-      if (platform === "all") {
+      // Whole-page hits for multi-section guides open every topic. Keep section links.
+      if (!hashed.length && /-guide\//.test(linkPath(links[0]))) {
+        item.hidden = true;
+        return;
+      }
+
+      item.hidden = false;
+      visible += 1;
+
+      var more = item.querySelector(".md-search-result__more");
+      if (more) more.hidden = false;
+
+      if (platform === "student") {
         ensureBadge(item.querySelector("h1"), itemPlatform);
       }
     });
@@ -116,6 +154,42 @@
       observer.observe(root, { childList: true, subtree: true });
     });
     observer.observe(root, { childList: true, subtree: true });
+  }
+
+  function bindSearchInput() {
+    var input = document.querySelector(".md-search__input");
+    if (!input || input.dataset.searchFilter === "true") return;
+    input.dataset.searchFilter = "true";
+    ["input", "keyup", "search", "paste", "change"].forEach(function (eventName) {
+      input.addEventListener(eventName, decorateResults);
+    });
+    // Material search listens for keyup. One delayed keyup after paste/autofill
+    // is enough; do not dispatch on every input (that can loop with suggest).
+    input.addEventListener("paste", function () {
+      window.setTimeout(function () {
+        input.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true, key: "Unidentified" }));
+      }, 0);
+    });
+  }
+
+  function openSearchOverlay() {
+    setPlaceholder();
+    watchResults();
+    bindSearchInput();
+    bindResultClicks();
+    decorateResults();
+    window.setTimeout(decorateResults, 50);
+    window.setTimeout(decorateResults, 250);
+  }
+
+  function bindSearchToggle() {
+    var toggle = document.getElementById("__search");
+    if (!toggle || toggle.dataset.searchFilter === "true") return;
+    toggle.dataset.searchFilter = "true";
+    toggle.addEventListener("change", function () {
+      if (!toggle.checked) return;
+      openSearchOverlay();
+    });
   }
 
   function unwrapSearchMarks() {
@@ -151,21 +225,35 @@
   }
 
   function bindResultClicks() {
-    var root = document.querySelector("[data-md-component='search-result']");
-    if (!root || root.dataset.searchClose === "true") return;
-    root.dataset.searchClose = "true";
-    root.addEventListener("click", function (event) {
-      if (!event.target.closest("a.md-search-result__link")) return;
-      closeAndResetSearch();
-    });
+    if (document.documentElement.dataset.searchClose === "true") return;
+    document.documentElement.dataset.searchClose = "true";
+    document.addEventListener(
+      "click",
+      function (event) {
+        var anchor = event.target.closest("a.md-search-result__link");
+        if (!anchor) return;
+        var href = anchor.getAttribute("href");
+        if (!href) return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        closeAndResetSearch();
+        window.location.assign(new URL(href, window.location.href).href);
+      },
+      true
+    );
   }
 
   function init() {
     setPlaceholder();
     watchResults();
+    bindSearchInput();
+    bindSearchToggle();
     decorateResults();
     bindResultClicks();
-    closeAndResetSearch();
+    var toggle = document.getElementById("__search");
+    if (!toggle || !toggle.checked) {
+      closeAndResetSearch();
+    }
   }
 
   if (typeof document$ !== "undefined") {

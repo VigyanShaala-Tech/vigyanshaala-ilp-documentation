@@ -4,6 +4,8 @@
 
 ## Install the app {: #install-app }
 
+<p class="sr-search-terms">install the app play store stem champions google download android</p>
+
 Install **STEM Champions by VigyanShaala** from the Google Play Store on your Android phone. You need a Google account on the phone and a stable internet connection for the download.
 
 - Open the Play Store page: [STEM Champions by VigyanShaala](https://play.google.com/store/apps/details?id=org.app.vigyanshaala.stemchampions){ target="_blank" }.
@@ -19,6 +21,8 @@ Install **STEM Champions by VigyanShaala** from the Google Play Store on your An
 
 ## Open and sign in {: #open-and-sign-in }
 
+<p class="sr-search-terms">open the app sign in log in welcome play store</p>
+
 When install is complete, open the app from Play Store or from your home screen. The welcome screen has **Log In** and **Sign Up**. Use the account steps if you need help signing in.
 
 - When install is complete, tap **Open**.
@@ -30,6 +34,8 @@ When install is complete, open the app from Play Store or from your home screen.
 ---
 
 ## Update the app {: #update-app }
+
+<p class="sr-search-terms">update the app play store new version</p>
 
 Keep the app up to date so you get fixes and new features. When a new version is ready, Play Store may show **Update** instead of **Open**.
 

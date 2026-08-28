@@ -78,6 +78,8 @@
   function applySectionFocus() {
     clearSectionFocus();
 
+    if (/\/download-(admin-)?pdf\/?$/.test(window.location.pathname)) return;
+
     var hash = decodeURIComponent(window.location.hash.slice(1));
     if (!hash) return;
 
@@ -128,9 +130,80 @@
     }
   }
 
+  function samePath(url) {
+    return url.pathname.replace(/\/$/, "") === window.location.pathname.replace(/\/$/, "");
+  }
+
+  function sectionHashFromLink(anchor) {
+    var href = anchor.getAttribute("href");
+    if (!href || href === "#") return null;
+
+    var hash = "";
+    if (href.charAt(0) === "#") {
+      hash = href.slice(1);
+    } else {
+      try {
+        var url = new URL(anchor.href, window.location.href);
+        if (!samePath(url) || !url.hash) return null;
+        hash = url.hash.slice(1);
+      } catch (err) {
+        return null;
+      }
+    }
+
+    hash = decodeURIComponent(hash);
+    if (!hash) return null;
+
+    var content = getContentRoot();
+    if (!content || !findSectionH2(content, hash)) return null;
+    return hash;
+  }
+
+  // Hash links to hidden H2s do nothing in the browser (display:none).
+  // Set the hash ourselves so section-focus can show that topic.
+  function onSectionLinkClick(event) {
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    var anchor = event.target.closest("a");
+    if (!anchor) return;
+    var href = anchor.getAttribute("href");
+    if (!href || href === "#") return;
+
+    var url;
+    try {
+      url = new URL(anchor.href, window.location.href);
+    } catch (err) {
+      return;
+    }
+    if (!url.hash) return;
+
+    // Instant navigation drops the hash, so the whole article opens.
+    // Load the section URL in full when leaving this page.
+    if (!samePath(url)) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.location.assign(url.href);
+      return;
+    }
+
+    var hash = sectionHashFromLink(anchor);
+    if (!hash) return;
+
+    event.preventDefault();
+    if (decodeURIComponent(window.location.hash.slice(1)) === hash) {
+      applySectionFocus();
+      return;
+    }
+    window.location.hash = hash;
+  }
+
   function init() {
     applySectionFocus();
+    requestAnimationFrame(applySectionFocus);
   }
+
+  document.addEventListener("click", onSectionLinkClick, true);
 
   if (typeof document$ !== "undefined") {
     document$.subscribe(function () {

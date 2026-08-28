@@ -78,6 +78,330 @@
         categoryPath: "../categories/app-install/",
       },
     },
+    admin: {
+      "reach-control-hub": {
+        category: "How to reach Control Hub",
+        categoryPath: "/admin/categories/reach-control-hub/",
+      },
+      dashboard: {
+        category: "Dashboard",
+        categoryPath: "/admin/categories/dashboard/",
+      },
+      "user-management": {
+        category: "User Management",
+        categoryPath: "/admin/categories/user-management/",
+      },
+      "course-management": {
+        category: "Course Management",
+        categoryPath: "/admin/categories/course-management/",
+      },
+      "certificate-manage": {
+        category: "Certificate Manage",
+        categoryPath: "/admin/categories/certificate-manage/",
+      },
+      "cohort-manage-form": {
+        category: "Cohort Manage Form",
+        categoryPath: "/admin/categories/cohort-manage-form/",
+      },
+      "rule-engine": {
+        category: "Rule Engine",
+        categoryPath: "/admin/categories/rule-engine/",
+      },
+      "badges-management": {
+        category: "Badges Management",
+        categoryPath: "/admin/categories/badges-management/",
+      },
+      navigation: {
+        category: "NAVIGATION",
+        categoryPath: "/admin/categories/navigation/",
+      },
+      "tas-guide": {
+        category: "TAS Admin panel",
+        categoryPath: "/admin/tas-admin/",
+      },
+      "analytics-guide": {
+        category: "Analytics",
+        categoryPath: "/admin/analytics/",
+        byHash: {
+          open: {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          dashboards: {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          "course-dashboard": {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          "at-risk-learners": {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          "individual-learner-dashboard": {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          "operator-dashboard": {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          "course-comparison-dashboard": {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          "in-context": {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          datasets: {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          charts: {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          "create-chart": {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          settings: {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          "import-dataset": {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+          sql: {
+            category: "Analytics",
+            categoryPath: "/admin/analytics/",
+          },
+        },
+      },
+      "instructor-guide": {
+        category: "Instructor dashboard (LMS)",
+        categoryPath: "/admin/instructor/",
+        byHash: {
+          open: {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "course-info": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          membership: {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "batch-enrollment": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "beta-testers": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "course-team": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          cohorts: {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "assign-cohorts": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          extensions: {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "student-admin": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "problem-location": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "enrollment-status": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "view-progress": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "adjust-learner-grade": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "adjust-all-grades": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          gradebook: {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          discussions: {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "data-download": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "data-download-reports": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "special-exams": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "add-extra-time": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "special-exam-attempts": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          certificates: {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "enable-certificates": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "regenerate-certificates": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "certificate-exceptions": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          "invalidate-certificates": {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+          reports: {
+            category: "Instructor dashboard (LMS)",
+            categoryPath: "/admin/instructor/",
+          },
+        },
+      },
+      "studio-guide": {
+        category: "Studio",
+        categoryPath: "/admin/studio/",
+        byHash: {
+          open: {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "schedule-details": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "course-team": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "advanced-settings": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "course-updates": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "upload-files": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "import-export": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "export-tags": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          checklists: {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "create-course": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "course-outline": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "create-section": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "create-subsection": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "create-unit": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "add-pdf": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "add-google-document": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "add-quick-quiz-maker": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "add-staff-graded-assignment": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "add-zoom-live-class": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          taxonomies: {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
+          "create-library": {
+            category: "Manage library",
+            categoryPath: "/admin/categories/studio-libraries/",
+          },
+          "explore-library": {
+            category: "Manage library",
+            categoryPath: "/admin/categories/studio-libraries/",
+          },
+          "library-team": {
+            category: "Manage library",
+            categoryPath: "/admin/categories/studio-libraries/",
+          },
+          "library-backup": {
+            category: "Manage library",
+            categoryPath: "/admin/categories/studio-libraries/",
+          },
+        },
+      },
+    },
   };
 
   function getContentRoot() {
@@ -89,16 +413,21 @@
     if (!parts.length) return null;
 
     var isAndroid = parts[0] === "android";
+    var isAdmin = parts[0] === "admin" || parts[0] === "admin-guide";
     var slug = parts[parts.length - 1];
-    var platform = isAndroid ? "android" : "web";
+    var platform = isAdmin ? "admin" : isAndroid ? "android" : "web";
+    var helpPath;
+    var prefix = parts.indexOf("categories") !== -1 ? "../../" : "../";
+    if (isAdmin) {
+      helpPath = "/admin-guide/";
+    } else {
+      helpPath = prefix + "help-center/";
+    }
 
     return {
       platform: platform,
       slug: slug,
-      // Fix category pages:
-      // /categories/<topic>/          --> /help-center/
-      // /android/categories/<topic>/  --> /android/help-center/
-      helpPath: parts.indexOf("categories") !== -1 ? "../../help-center/" : "../help-center/",
+      helpPath: helpPath,
     };
   }
 
@@ -172,6 +501,11 @@
 
     var map = ARTICLE_MAP[info.platform] && ARTICLE_MAP[info.platform][info.slug];
     if (!map) return;
+
+    var hash = decodeURIComponent(window.location.hash.slice(1));
+    if (hash && map.byHash && map.byHash[hash]) {
+      map = map.byHash[hash];
+    }
 
     var sectionTitle = getSectionTitle(content);
 

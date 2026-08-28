@@ -1,14 +1,31 @@
-"""Build a real PDF of the combined Web + Android student guide."""
+"""Build combined student and admin PDF guides."""
 
 from __future__ import annotations
 
 import os
+import shutil
 import sys
 import threading
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-PDF_NAME = "VigyanShaala-ILP-Student-Guide.pdf"
+PDF_GUIDES = [
+    {
+        "page": "download-pdf",
+        "filename": "VigyanShaala-ILP-Student-Guide.pdf",
+        "title": "VigyanShaala ILP — Student Guide",
+        "download_md": "download-pdf.md",
+    },
+    {
+        "page": "download-admin-pdf",
+        "filename": "VigyanShaala-ILP-Admin-Guide.pdf",
+        "title": "VigyanShaala ILP — Admin Guide",
+        "download_md": "download-admin-pdf.md",
+    },
+]
+
+# Back-compat for older imports
+PDF_NAME = PDF_GUIDES[0]["filename"]
 
 
 def _serve(site_dir: Path):
@@ -25,13 +42,25 @@ def _serve(site_dir: Path):
     return server
 
 
-def build_pdf(site_dir: Path, output: Path | None = None) -> Path:
+def _cache_dir() -> Path:
+    return Path(__file__).resolve().parent / ".pdf-cache"
+
+
+def save_pdf_cache(pdf_path: Path) -> None:
+    cache = _cache_dir() / pdf_path.name
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    if pdf_path.resolve() != cache.resolve():
+        shutil.copy2(pdf_path, cache)
+
+
+def build_pdf(site_dir: Path, guide: dict | None = None, output: Path | None = None) -> Path:
+    guide = guide or PDF_GUIDES[0]
     site_dir = site_dir.resolve()
-    html_page = site_dir / "download-pdf" / "index.html"
+    html_page = site_dir / guide["page"] / "index.html"
     if not html_page.is_file():
         raise FileNotFoundError(f"Missing combined guide page: {html_page}")
 
-    output = (output or site_dir / PDF_NAME).resolve()
+    output = (output or site_dir / guide["filename"]).resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
 
     try:
@@ -44,7 +73,7 @@ def build_pdf(site_dir: Path, output: Path | None = None) -> Path:
 
     server = _serve(site_dir)
     host, port = server.server_address
-    url = f"http://{host}:{port}/download-pdf/"
+    url = f"http://{host}:{port}/{guide['page']}/"
 
     launch_args = ["--disable-dev-shm-usage"]
     if hasattr(os, "geteuid") and os.geteuid() == 0:
@@ -52,15 +81,24 @@ def build_pdf(site_dir: Path, output: Path | None = None) -> Path:
 
     try:
         with sync_playwright() as playwright:
-            browser = playwright.chromium.launch(args=launch_args)
+            try:
+                browser = playwright.chromium.launch(args=launch_args)
+            except Exception as exc:
+                raise RuntimeError(
+                    "Playwright Chromium is not installed. "
+                    "Run: python -m playwright install chromium"
+                ) from exc
             page = browser.new_page()
-            page.goto(url, wait_until="load", timeout=120_000)
+            page.goto(url, wait_until="load", timeout=300_000)
             page.evaluate("document.body.classList.add('pdf-guide-page')")
-            page.evaluate("document.title = 'VigyanShaala ILP — Student Guide'")
+            page.evaluate("document.title = %s" % repr(guide["title"]))
             page.emulate_media(media="print")
             page.evaluate(
                 """
                 async () => {
+                  if (document.fonts && document.fonts.ready) {
+                    await document.fonts.ready;
+                  }
                   const imgs = [...document.querySelectorAll(".md-content img")];
                   await Promise.all(imgs.map((img) => {
                     if (img.complete) return;
@@ -114,10 +152,19 @@ def build_pdf(site_dir: Path, output: Path | None = None) -> Path:
     return output
 
 
+def build_all_pdfs(site_dir: Path) -> list[Path]:
+    written = []
+    for guide in PDF_GUIDES:
+        path = build_pdf(site_dir, guide, site_dir / guide["filename"])
+        save_pdf_cache(path)
+        written.append(path)
+    return written
+
+
 def main(argv: list[str]) -> int:
     site_dir = Path(argv[1] if len(argv) > 1 else "site")
-    build_pdf(site_dir)
-    print(f"Wrote {site_dir / PDF_NAME}")
+    for path in build_all_pdfs(site_dir):
+        print(f"Wrote {path}")
     return 0
 
 
