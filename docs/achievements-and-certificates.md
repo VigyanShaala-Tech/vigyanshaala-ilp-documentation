@@ -4,6 +4,8 @@
 
 ## View your achievements {: #achievements }
 
+<p class="sr-search-terms">view your achievements my achievements badges certificates earned in progress</p>
+
 Badges appear automatically as you learn — you do not apply for most of them. Open **My Achievements** to see what you have earned, what is still in progress, and how many certificates you have.
 
 - On [My Dashboard](my-dashboard.md#dashboard-achievements), click **View All >**.
@@ -16,6 +18,8 @@ You see earned badges, badges in progress, certificate count, and completed prog
 ---
 
 ## How badges are earned {: #badge-triggers }
+
+<p class="sr-search-terms">how badges are earned welcome first enrollment course progress completion attendance top performer</p>
 
 Most badges are given when you complete an action — such as creating an account, joining a program, or attending a live session. You do not submit a separate request for these.
 
@@ -31,6 +35,8 @@ Most badges are given when you complete an action — such as creating an accoun
 ---
 
 ## Finish a program and get your certificate {: #complete-course }
+
+<p class="sr-search-terms">finish a program certificate view certificate graduated progress my certificates</p>
 
 A certificate is issued when you finish the required videos, quizzes, and assignments. Check the **Progress** tab to see what is left. When you are done, the program moves to **Graduated**.
 

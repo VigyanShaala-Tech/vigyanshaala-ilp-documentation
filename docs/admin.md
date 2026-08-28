@@ -7,8 +7,8 @@ search:
   exclude: true
 ---
 
-# Admin
+# Admin guide
 
-This will be updated shortly.
+<script>window.location.replace("/admin-guide/");</script>
 
-[← Back](index.md)
+If you are not redirected, [open the Admin guide](/admin-guide/).

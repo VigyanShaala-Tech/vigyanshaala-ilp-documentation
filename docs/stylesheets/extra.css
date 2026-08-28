@@ -78,6 +78,7 @@ textarea,
 
 .md-header__inner {
   gap: 0.4rem;
+  flex-wrap: nowrap;
 }
 
 .md-header__inner .md-search {
@@ -101,6 +102,7 @@ textarea,
   background-color: rgba(0, 0, 0, 0.045);
   color: var(--vs-dark);
   border-radius: 6px;
+  font-size: 1rem;
 }
 
 .md-search__input::placeholder {
@@ -175,6 +177,12 @@ textarea,
   background-color: var(--vs-surface);
   border-bottom: 1px solid var(--vs-border);
   color: var(--vs-text);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.md-tabs__list {
+  flex-wrap: nowrap;
 }
 
 .md-tabs__link {
@@ -195,14 +203,14 @@ textarea,
 }
 
 /*
- * Platform tabs (Web | Android): sidebar shows ONLY the active platform.
+ * Platform tabs (Web | Android | Admin): sidebar shows ONLY the active platform.
  * Inactive platform section is hidden on all viewports.
  */
 .md-nav--lifted > .md-nav__list > .md-nav__item--nested:not(.md-nav__item--active) {
   display: none !important;
 }
 
-/* Hide the active platform's own section title (Web / Android) — tabs already show it */
+/* Hide the active platform's own section title (Web / Android / Admin) — tabs already show it */
 .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link,
 .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__container {
   display: none !important;
@@ -349,31 +357,43 @@ textarea,
   margin-inline: auto;
 }
 
-.help-center-cards.grid.cards > ul {
+.md-typeset .help-center-cards.grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
-.help-center-cards.grid.cards > ul > li {
+.md-typeset .help-center-cards.grid.cards > ul > li {
   min-height: 10rem;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   padding: 1.25rem 1rem;
 }
 
-.help-center-cards.grid.cards > ul > li p {
+.md-typeset .help-center-cards.grid.cards > ul > li > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.md-typeset .help-center-cards.grid.cards > ul > li p {
   flex-grow: 1;
+  white-space: normal;
 }
 
 @media (max-width: 59.9em) {
-  .help-center-cards.grid.cards > ul {
+  .md-typeset .help-center-cards.grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 44.9em) {
-  .help-center-cards.grid.cards > ul {
+  .md-typeset .help-center-cards.grid {
     grid-template-columns: 1fr;
+  }
+
+  .md-typeset .help-center-cards.grid.cards > ul > li {
+    min-height: 0;
+    padding: 1rem 0.9rem;
   }
 }
 
@@ -429,7 +449,9 @@ body:has(.choose-platform) .md-sidebar--primary,
 body:has(.choose-platform) .md-sidebar--secondary,
 body:has(.help-center-cards) .md-sidebar--primary,
 body:has(.category-hub) .md-sidebar--primary,
-body:has(.skip-to) .md-sidebar--primary {
+body:has(.skip-to) .md-sidebar--primary,
+body:has(.admin-guide) .md-sidebar--primary,
+body:has(.admin-guide) .md-sidebar--secondary {
   display: none !important;
 }
 
@@ -440,14 +462,16 @@ body:has(.skip-to) .md-sidebar--primary {
 body:has(.choose-platform) .md-header__button[for="__drawer"],
 body:has(.help-center-cards) .md-header__button[for="__drawer"],
 body:has(.category-hub) .md-header__button[for="__drawer"],
-body:has(.skip-to) .md-header__button[for="__drawer"] {
+body:has(.skip-to) .md-header__button[for="__drawer"],
+body:has(.admin-guide) .md-header__button[for="__drawer"] {
   display: none;
 }
 
 body:has(.choose-platform) .md-content,
 body:has(.help-center-cards) .md-content,
 body:has(.category-hub) .md-content,
-body:has(.skip-to) .md-content {
+body:has(.skip-to) .md-content,
+body:has(.admin-guide) .md-content {
   margin-left: 0;
 }
 
@@ -533,16 +557,20 @@ body:has(.skip-to) .md-content__inner {
 /* ---- Home: Web or Android choice ---- */
 
 .md-content:has(.choose-platform) {
-  max-width: 52rem;
+  max-width: 64rem;
   margin-inline: auto;
 }
 
-.choose-platform.grid.cards > ul {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.md-typeset .choose-platform.grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 56rem;
+  margin-inline: auto;
 }
 
-.choose-platform.grid.cards > ul > li {
+.md-typeset .choose-platform.grid.cards > ul > li {
   min-height: 12rem;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -550,14 +578,42 @@ body:has(.skip-to) .md-content__inner {
   padding: 1.5rem 1.25rem;
 }
 
-@media (max-width: 44.9em) {
-  .choose-platform.grid.cards > ul {
-    grid-template-columns: 1fr;
-  }
+.md-typeset .choose-platform.grid.cards > ul > li > * {
+  min-width: 0;
+  max-width: 100%;
+}
 
-  .choose-platform.grid.cards > ul > li {
+.md-typeset .help-center-cards.grid.cards > ul > li p,
+.md-typeset .choose-platform.grid.cards > ul > li p {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 59.9em) {
+  .md-typeset .choose-platform.grid.cards > ul > li {
     min-height: 0;
     padding: 1.15rem 1rem;
+  }
+
+  .md-typeset .choose-platform.grid.cards > ul > li .md-button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .category-block li a {
+    display: inline-block;
+    padding: 0.15rem 0;
+    min-height: 2rem;
+  }
+}
+
+@media (max-width: 44.9em) {
+  .md-typeset .choose-platform.grid {
+    grid-template-columns: 1fr;
+    max-width: none;
   }
 }
 
@@ -569,15 +625,17 @@ body:has(.skip-to) .md-content__inner {
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
-.md-typeset .grid.cards > ul > li:hover,
-.md-typeset .grid.cards > ol > li:hover {
-  border-color: var(--vs-brand);
-  background-color: var(--vs-brand-light);
-  box-shadow: 0 4px 14px rgba(105, 171, 74, 0.18);
-}
+@media (hover: hover) and (pointer: fine) {
+  .md-typeset .grid.cards > ul > li:hover,
+  .md-typeset .grid.cards > ol > li:hover {
+    border-color: var(--vs-brand);
+    background-color: var(--vs-brand-light);
+    box-shadow: 0 4px 14px rgba(105, 171, 74, 0.18);
+  }
 
-.md-typeset .grid.cards a:not(.md-button):hover {
-  color: var(--vs-brand-dark);
+  .md-typeset .grid.cards a:not(.md-button):hover {
+    color: var(--vs-brand-dark);
+  }
 }
 
 /* ---- Buttons: LMS 6px radius, green fill, hover opacity ---- */
@@ -697,6 +755,30 @@ body:has(.skip-to) .md-content__inner {
   border: 1px solid var(--vs-border);
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  max-width: 100%;
+  height: auto;
+}
+
+.md-typeset .md-typeset__table,
+.md-typeset table:not([class]) {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+body:has(.admin-guide) .md-typeset,
+body:has(.choose-platform) .md-typeset,
+body:has(.skip-to) .md-typeset,
+body:has(.help-center-cards) .md-typeset,
+body:has(.category-hub) .md-typeset {
+  overflow-wrap: break-word;
+}
+
+.help-center-cards.grid.cards > ul > li p,
+.choose-platform.grid.cards > ul > li p {
+  white-space: normal;
+  overflow: visible;
 }
 
 /* Phone screenshots in the Android guide — same height as 01-welcome.png */
@@ -747,15 +829,76 @@ body:has(.skip-to) .md-content__inner {
     align-items: center;
     flex-shrink: 0;
   }
+
+  .md-main {
+    overflow-x: hidden;
+  }
+
+  .md-typeset img[src*="/img/android/"] {
+    height: auto;
+    max-height: 28rem;
+    max-width: min(18rem, 100%);
+  }
 }
 
 body:has(.choose-platform) .md-tabs {
   display: none !important;
 }
 
+body.student-site .md-tabs__item:has(a[href*="admin-guide"]) {
+  display: none !important;
+}
+
+body.admin-site .md-tabs__item:has(a[href*="help-center"]) {
+  display: none !important;
+}
+
 @media screen and (max-width: 59.984375em) {
   .md-header__inner > label[for="__search"] {
     margin-left: auto;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+
+  .md-header__inner {
+    padding-left: max(0.6rem, env(safe-area-inset-left));
+    padding-right: max(0.6rem, env(safe-area-inset-right));
+  }
+
+  .md-search {
+    z-index: 8;
+  }
+
+  body:has(#__search:checked) .md-search,
+  body:has(#__search:checked) .md-search__form,
+  body:has(#__search:checked) .md-search__output {
+    z-index: 9;
+  }
+
+  .md-search__input {
+    font-size: 16px !important;
+  }
+
+  body:has(#__search:checked) .md-tabs,
+  body:has(#__search:checked) .header-download-pdf {
+    display: none !important;
+  }
+
+  .md-search__output,
+  .md-search-result {
+    max-height: min(70vh, calc(100dvh - 5.5rem));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .md-search-result__item {
+    word-break: break-word;
+  }
+
+  .md-search-result__link {
+    min-height: 2.75rem;
+    touch-action: manipulation;
   }
 }
 
@@ -763,6 +906,19 @@ body:has(.choose-platform) .md-tabs {
   .md-header__inner {
     gap: 0.15rem;
     min-height: 2.8rem;
+  }
+
+  .md-main__inner {
+    padding-top: 0.75rem;
+  }
+
+  body:has(.admin-guide) .md-typeset img,
+  body:has(.skip-to) .md-typeset img {
+    max-width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    object-position: top center;
   }
 
   .md-header__button.md-logo {
@@ -781,7 +937,7 @@ body:has(.choose-platform) .md-tabs {
   .header-download-pdf {
     margin-right: 0.15rem;
     padding: 0.35rem 0.55rem;
-    min-height: 2rem;
+    min-height: 2.5rem;
     font-size: 0.68rem;
   }
 
@@ -810,6 +966,24 @@ body:has(.choose-platform) .md-tabs {
     display: inline-block;
     max-width: 100%;
     text-align: center;
+    white-space: normal;
+  }
+
+  .md-main,
+  .md-content,
+  .md-content__inner,
+  .md-typeset {
+    max-width: 100%;
+  }
+
+  .md-main {
+    overflow-x: hidden;
+  }
+
+  .help-center-cards.grid.cards > ul > li a {
+    display: inline-block;
+    min-height: 2.5rem;
+    line-height: 2.5rem;
   }
 
   .md-content:has(.choose-platform),
@@ -848,11 +1022,17 @@ body:has(.choose-platform) .md-tabs {
   text-transform: uppercase;
 }
 
+.pdf-android-start,
+.pdf-section-start {
+  display: none;
+}
+
 @media print {
   .md-header,
   .md-tabs,
   .md-sidebar,
   .md-footer,
+  .md-search,
   .header-download-pdf,
   .page-back-to-top,
   .skip-to,
@@ -885,11 +1065,24 @@ body:has(.choose-platform) .md-tabs {
     max-width: 7.5cm;
   }
 
+  .pdf-android-start,
+  .pdf-section-start {
+    display: block;
+    margin: 0;
+    padding: 0;
+    break-before: page;
+    page-break-before: always;
+  }
+
   .md-typeset h1 {
     break-before: page;
   }
 
-  .md-typeset h1:first-of-type {
+  .md-typeset h1:first-of-type,
+  .md-typeset h1 + h1,
+  .md-typeset .pdf-android-start + h1,
+  .md-typeset .pdf-section-start + h1 {
     break-before: auto;
+    page-break-before: auto;
   }
 }

@@ -8,11 +8,17 @@ All content is under `docs/` — **Web** and **Android** student guides only (no
 
 ```bash
 pip install -r requirements.txt
-playwright install chromium
 mkdocs serve -a 127.0.0.1:2060
 ```
 
-Then open <http://127.0.0.1:2060>.
+Then open <http://127.0.0.1:2060> for the **student** guide (Web and Android).
+
+To generate a fresh PDF locally (same as CI):
+
+```bash
+python -m playwright install chromium
+mkdocs build
+```
 
 ## Deployment
 
@@ -20,4 +26,4 @@ Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site wit
 
 For this to work, GitHub Pages must be enabled for this repo: **Settings → Pages → Source: GitHub Actions**.
 
-Once enabled, the site is live at **https://help.mycommunity.vigyanshaala.com/**.
+Once enabled, the student site is live at **https://help.mycommunity.vigyanshaala.com/**.
