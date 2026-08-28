@@ -352,7 +352,8 @@ textarea,
 
 /* ---- Help center home (Coursera-style) ---- */
 
-.md-content:has(.help-center-cards) {
+.md-content:has(.help-center-cards),
+.md-content:has(.admin-guide) {
   max-width: 56rem;
   margin-inline: auto;
 }
@@ -476,7 +477,8 @@ body:has(.admin-guide) .md-content {
 }
 
 body:has(.help-center-cards) .md-content__inner,
-body:has(.category-hub) .md-content__inner {
+body:has(.category-hub) .md-content__inner,
+body:has(.admin-guide) .md-content__inner {
   max-width: 52rem;
   margin-inline: auto;
 }
@@ -912,6 +914,41 @@ body.admin-site .md-tabs__item:has(a[href*="help-center"]) {
     padding-top: 0.75rem;
   }
 
+  body:has(.admin-guide) .md-content,
+  body:has(.help-center-cards) .md-content,
+  body:has(.category-hub) .md-content,
+  body:has(.skip-to) .md-content {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    box-sizing: border-box;
+  }
+
+  body:has(.admin-guide) .md-content__inner,
+  body:has(.help-center-cards) .md-content__inner,
+  body:has(.category-hub) .md-content__inner,
+  body:has(.skip-to) .md-content__inner {
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  body:has(.admin-guide) .md-typeset > h1:first-child,
+  body:has(.help-center-cards) .md-typeset > h1:first-child {
+    color: var(--vs-dark);
+    font-weight: 800;
+    margin-top: 0;
+  }
+
+  .md-typeset .help-center-cards.grid.cards > ul,
+  .md-typeset .help-center-cards.grid.cards > ol {
+    margin: 0;
+    padding: 0;
+  }
+
+  .md-typeset .help-center-cards.grid.cards > ul > li {
+    margin-inline: 0;
+  }
+
   body:has(.admin-guide) .md-typeset img,
   body:has(.skip-to) .md-typeset img {
     max-width: 100%;
@@ -983,11 +1020,13 @@ body.admin-site .md-tabs__item:has(a[href*="help-center"]) {
   .help-center-cards.grid.cards > ul > li a {
     display: inline-block;
     min-height: 2.5rem;
-    line-height: 2.5rem;
+    line-height: 1.4;
+    padding-top: 0.55rem;
   }
 
   .md-content:has(.choose-platform),
   .md-content:has(.help-center-cards),
+  .md-content:has(.admin-guide),
   .md-content:has(.category-hub) {
     max-width: none;
   }
