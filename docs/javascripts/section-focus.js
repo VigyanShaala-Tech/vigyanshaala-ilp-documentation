@@ -2,6 +2,7 @@
  * When a URL has a section hash (e.g. logging-in/#log-in), show only that
  * section — hide intro, other sections, and the right-hand TOC.
  * Works on all Web and Android article pages.
+ * H2 hashes show the full H2 block; H3/H4 hashes show only that subsection.
  */
 (function () {
   "use strict";
@@ -14,37 +15,20 @@
     return document.querySelector(".md-content__inner.md-typeset");
   }
 
-  function findSectionH2(content, hash) {
-    if (!hash) return null;
+  function headingLevel(el) {
+    if (!el || !el.tagName || el.tagName.charAt(0) !== "H") return 99;
+    var n = parseInt(el.tagName.slice(1), 10);
+    return isNaN(n) ? 99 : n;
+  }
 
-    var direct = content.querySelector("h2#" + CSS.escape(hash));
-    if (direct) return direct;
+  function findSectionStart(content, hash) {
+    if (!hash) return null;
 
     var el = document.getElementById(hash);
     if (!el || !content.contains(el)) return null;
-    if (el.tagName === "H2") return el;
+    if (headingLevel(el) < 2) return null;
 
-    var node = el;
-    while (node && node !== content) {
-      var prev = node.previousElementSibling;
-      while (prev) {
-        if (prev.tagName === "H2" && prev.id) return prev;
-        prev = prev.previousElementSibling;
-      }
-      node = node.parentElement;
-    }
-
-    node = el;
-    while (node && node !== content) {
-      var next = node.nextElementSibling;
-      while (next) {
-        if (next.tagName === "H2" && next.id) return next;
-        next = next.nextElementSibling;
-      }
-      node = node.parentElement;
-    }
-
-    return null;
+    return el;
   }
 
   function removeBackLink(content) {
@@ -86,11 +70,12 @@
     var content = getContentRoot();
     if (!content) return;
 
-    var targetH2 = findSectionH2(content, hash);
-    if (!targetH2) return;
+    var target = findSectionStart(content, hash);
+    if (!target) return;
 
-    var h2s = content.querySelectorAll("h2[id]");
-    if (!h2s.length) return;
+    var startLevel = headingLevel(target);
+    var hasSectionHeadings = content.querySelectorAll("h2[id], h3[id], h4[id]").length > 0;
+    if (!hasSectionHeadings) return;
 
     document.body.classList.add(FOCUS_CLASS);
 
@@ -100,12 +85,12 @@
     children.forEach(function (child) {
       if (child.tagName === "H1") return;
 
-      if (child === targetH2) {
+      if (child === target) {
         inActiveSection = true;
         return;
       }
 
-      if (child.tagName === "H2" && child.id && inActiveSection) {
+      if (inActiveSection && child.id && headingLevel(child) <= startLevel) {
         inActiveSection = false;
       }
 
@@ -119,10 +104,10 @@
       if (!h1.dataset.fullTitle) {
         h1.dataset.fullTitle = h1.textContent.trim();
       }
-      h1.textContent = targetH2.textContent.trim();
+      h1.textContent = target.textContent.trim();
     }
 
-    targetH2.classList.add(HIDDEN_CLASS);
+    target.classList.add(HIDDEN_CLASS);
     window.scrollTo(0, 0);
 
     if (typeof window.renderArticleBreadcrumbs === "function") {
@@ -155,11 +140,11 @@
     if (!hash) return null;
 
     var content = getContentRoot();
-    if (!content || !findSectionH2(content, hash)) return null;
+    if (!content || !findSectionStart(content, hash)) return null;
     return hash;
   }
 
-  // Hash links to hidden H2s do nothing in the browser (display:none).
+  // Hash links to hidden headings do nothing in the browser (display:none).
   // Set the hash ourselves so section-focus can show that topic.
   function onSectionLinkClick(event) {
     if (event.defaultPrevented || event.button !== 0) return;
