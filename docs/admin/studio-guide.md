@@ -258,6 +258,8 @@ Under **Add a new component**:
 
 ![Add a new component](../img/281-admin-studio-unit-components.png)
 
+**Video** uses a video you already uploaded. See [How to upload Video](#upload-video).
+
 **Template Based Assignment** is under **Advanced**. See the [TAS Admin panel](/admin/tas-admin/) guide. You can also add [PDF](#add-pdf), [Google Document](#add-google-document), [Quick Quiz Maker](#add-quick-quiz-maker), [Staff Graded Assignment](#add-staff-graded-assignment), and [Zoom Live Class](#add-zoom-live-class).
 
 **Use unit from library** pulls in a unit from a library. See [How to create a library](#create-library) and [How to explore a library](#explore-library).
@@ -833,6 +835,100 @@ If you click **Delete**, the box is **Delete this component?** Deleting this com
 ![Delete this component?](../img/308-admin-studio-delete-component.png)
 
 The same **Actions** menu is on PDF, Google Document, Quick Quiz Maker, Staff Graded Assignment, and the other components on a unit.
+
+---
+
+## How to upload Video {: #upload-video }
+
+<p class="sr-search-terms">how to upload video content videos add videos upload ready copy video id outline add new component paste video id save publish</p>
+
+Upload the video file in Studio first, wait until status is **Ready**, copy the **video ID**, then add a **Video** component on a unit and paste that ID.
+
+Before you start, make sure you have:
+
+- Access to Studio and permission to edit the course
+- The video file on your computer
+- A stable internet connection (large files take longer)
+
+### Open Studio and the course
+
+Open [Studio](#open). Sign in with your admin or instructor account.
+
+On **Studio home**, find the course and click the course title. You land on **Course outline**.
+
+### Open the Videos page
+
+In the course header, click **Content**, then **Videos**.
+
+![Content → Videos](../img/384-admin-studio-videos-page.png)
+
+On **Videos** you can:
+
+- See videos already uploaded
+- Upload new videos
+- Check upload and processing status
+
+### Upload a new video
+
+Click **+ Add videos**.
+
+![Videos page with + Add videos](../img/385-admin-studio-add-videos.png)
+
+Select the video file from your computer. Upload starts automatically.
+
+While the file uploads, you see **Upload in progress**.
+
+![Upload in progress](../img/386-admin-studio-video-upload-progress.png)
+
+Do not close or refresh the page or tab until the upload finishes. Exiting now deletes upload progress. For large files, keep a stable connection and wait.
+
+### Verify the video is Ready
+
+When upload finishes, the video appears in the list. You see the **file name**, **video length**, and **Status**.
+
+Before you add the video to a unit, wait until **Status** is **Ready**. Do not add it to the course while status is still processing or queued.
+
+### Copy the video ID
+
+When status is **Ready**:
+
+1. Click the three-dot menu (**...**) on that video row
+2. Click **Copy video ID**
+3. The ID is copied to your clipboard
+
+![Copy video ID](../img/387-admin-studio-videos-list-ready.png)
+
+You need this ID when you add the **Video** component.
+
+### Add the Video component to a unit
+
+In the course header, click **Content**, then **Outline** (or open **Course outline**).
+
+Open an existing [unit](#create-unit), or create a new one.
+
+Under **Add a new component**, click **Video**.
+
+In the **Video** box, paste the ID into **Video ID**.
+
+![Video ID](../img/388-admin-studio-add-video-component.png)
+
+Click **Save**. **Cancel** or the **X** closes without saving.
+
+The video block appears on the unit. Open it and check that the video plays.
+
+### Publish
+
+On the right, **RELEASE** may say **Unscheduled**. Click **Publish**. Learners see the video only after the unit is published. Leave **Hide from learners** unchecked.
+
+![Publish](../img/302-admin-studio-unit-release.png)
+
+**Quick path**
+
+Studio → course → **Content** → **Videos** → **+ Add videos** → wait for **Ready** → **Copy video ID** → **Outline** → unit → **Video** → paste ID → **Save** → **Publish**
+
+**Actions**
+
+On the component, click the three-dot **Actions** menu: **Manage Access**, **Move**, **Manage tags**, **Copy to Clipboard**, **Duplicate**, or **Delete**. **Delete this component?** is permanent and cannot be undone.
 
 ## Taxonomies {: #taxonomies }
 

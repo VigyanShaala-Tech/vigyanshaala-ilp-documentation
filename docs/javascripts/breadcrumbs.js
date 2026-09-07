@@ -359,6 +359,10 @@
             category: "Studio overview",
             categoryPath: "/admin/categories/studio-overview/",
           },
+          "upload-video": {
+            category: "Studio overview",
+            categoryPath: "/admin/categories/studio-overview/",
+          },
           "add-pdf": {
             category: "Studio overview",
             categoryPath: "/admin/categories/studio-overview/",

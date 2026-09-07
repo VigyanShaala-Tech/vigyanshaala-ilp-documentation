@@ -42,6 +42,7 @@ Open Studio, use Course guide, add an advanced component, or use Tools.
 
 ### :material-puzzle: How to add an advanced component
 
+- [How to upload Video](../studio-guide.md#upload-video)
 - [How to add PDF](../studio-guide.md#add-pdf)
 - [How to add Google Document](../studio-guide.md#add-google-document)
 - [How to add Quick Quiz Maker](../studio-guide.md#add-quick-quiz-maker)
