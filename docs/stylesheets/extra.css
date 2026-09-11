@@ -769,6 +769,220 @@ body:has(.skip-to) .md-content__inner {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Glossary: stack Term + Meaning on tablet/phone (no sideways scroll) */
+@media screen and (max-width: 59.9em) {
+  body:has(.glossary-page) .md-typeset .md-typeset__table,
+  body:has(.glossary-page) .md-typeset table:not([class]) {
+    display: block;
+    width: 100%;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: auto;
+  }
+
+  body:has(.glossary-page) .md-typeset table:not([class]) thead {
+    display: none;
+  }
+
+  body:has(.glossary-page) .md-typeset table:not([class]) tbody,
+  body:has(.glossary-page) .md-typeset table:not([class]) tr,
+  body:has(.glossary-page) .md-typeset table:not([class]) td {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  body:has(.glossary-page) .md-typeset table:not([class]) tr {
+    margin: 0 0 0.85rem;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  body:has(.glossary-page) .md-typeset table:not([class]) td {
+    border: 0;
+    padding: 0;
+  }
+
+  body:has(.glossary-page) .md-typeset table:not([class]) td:first-child {
+    margin-bottom: 0.35rem;
+    color: var(--vs-dark);
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  body:has(.glossary-page) .md-typeset table:not([class]) td:last-child {
+    color: var(--md-default-fg-color);
+    font-size: 0.92em;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  body:has(.glossary-page) .md-typeset h2 {
+    margin-top: 1.75rem;
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+}
+
+@media screen and (max-width: 44.9em) {
+  body:has(.glossary-page) .md-typeset table:not([class]) tr {
+    padding: 0.8rem 0.8rem;
+  }
+
+  body:has(.glossary-page) .md-typeset h2 {
+    font-size: 1.05rem;
+  }
+}
+
+/* ---- Admin How tools connect (full map) ---- */
+
+.admin-connect-map {
+  margin: 1rem 0 1.75rem;
+  padding: 1.25rem 1rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.admin-connect-map .acm-node {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 0.65rem 1rem;
+  border: 1.5px solid var(--vs-brand);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--vs-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.admin-connect-map .acm-node--main {
+  background: rgba(105, 171, 74, 0.1);
+}
+
+.admin-connect-map .acm-node--link {
+  border-style: dashed;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--vs-brand);
+}
+
+.admin-connect-map .acm-note {
+  margin: 0.35rem 0 0;
+  color: rgba(0, 0, 0, 0.62);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.admin-connect-map .acm-arrow--down {
+  width: 2px;
+  height: 1.1rem;
+  margin: 0.35rem auto;
+  background: var(--vs-brand);
+  position: relative;
+}
+
+.admin-connect-map .acm-arrow--down::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--vs-brand);
+  transform: translateX(-50%);
+}
+
+.admin-connect-map .acm-branches {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem 1rem;
+  align-items: start;
+  margin-top: 0.25rem;
+}
+
+.admin-connect-map .acm-col {
+  min-width: 0;
+  text-align: center;
+}
+
+.admin-connect-map .acm-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.admin-connect-map .acm-pills span {
+  display: inline-block;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid rgba(105, 171, 74, 0.45);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--vs-dark);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: normal;
+  text-align: center;
+}
+
+@media screen and (max-width: 59.9em) {
+  .admin-connect-map .acm-branches {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .admin-connect-map .acm-col + .acm-col {
+    padding-top: 0.5rem;
+    border-top: 1px dashed rgba(0, 0, 0, 0.12);
+  }
+}
+
+@media screen and (max-width: 44.9em) {
+  .admin-connect-map {
+    padding: 1rem 0.75rem 1.25rem;
+  }
+
+  .admin-connect-map .acm-node {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.85rem;
+  }
+
+  .admin-connect-map .acm-pills span {
+    font-size: 0.74rem;
+  }
+}
+
+@media print {
+  /* Do not force the whole map onto one page — tall maps can be dropped from PDF */
+  .admin-connect-map {
+    break-inside: auto;
+    page-break-inside: auto;
+    border-color: #bbb;
+  }
+
+  .admin-connect-map .acm-branches {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .admin-connect-map .acm-col {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
 body:has(.admin-guide) .md-typeset,
 body:has(.choose-platform) .md-typeset,
 body:has(.skip-to) .md-typeset,
@@ -1113,6 +1327,13 @@ body.admin-site .md-tabs__item:has(a[href*="help-center"]) {
     page-break-before: always;
   }
 
+  /* Keep title + first section on page 1 (no nearly-empty cover page) */
+  .pdf-doc-title + .pdf-section-start,
+  .pdf-doc-title + .pdf-android-start {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
   .md-typeset h1 {
     break-before: page;
   }
@@ -1123,5 +1344,75 @@ body.admin-site .md-tabs__item:has(a[href*="help-center"]) {
   .md-typeset .pdf-section-start + h1 {
     break-before: auto;
     page-break-before: auto;
+  }
+
+  /* Keep glossary and other tables readable in Admin/Student PDF */
+  .md-typeset .md-typeset__table,
+  .md-typeset table:not([class]),
+  .pdf-guide-page .md-typeset .md-typeset__table,
+  .pdf-guide-page .md-typeset table:not([class]) {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  .md-typeset table:not([class]) thead,
+  .pdf-guide-page .md-typeset table:not([class]) thead {
+    display: table-header-group !important;
+  }
+
+  .md-typeset table:not([class]) tbody,
+  .pdf-guide-page .md-typeset table:not([class]) tbody {
+    display: table-row-group !important;
+  }
+
+  .md-typeset table:not([class]) tr,
+  .pdf-guide-page .md-typeset table:not([class]) tr {
+    display: table-row !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .md-typeset table:not([class]) th,
+  .md-typeset table:not([class]) td,
+  .pdf-guide-page .md-typeset table:not([class]) th,
+  .pdf-guide-page .md-typeset table:not([class]) td {
+    display: table-cell !important;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .md-typeset table:not([class]) th:first-child,
+  .md-typeset table:not([class]) td:first-child,
+  .pdf-guide-page .md-typeset table:not([class]) th:first-child,
+  .pdf-guide-page .md-typeset table:not([class]) td:first-child {
+    width: 28%;
+    font-weight: 700;
+  }
+
+  .md-typeset h2 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .admin-connect-map,
+  .pdf-guide-page .admin-connect-map {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .admin-connect-map .acm-branches,
+  .pdf-guide-page .admin-connect-map .acm-branches {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .admin-connect-map .acm-col,
+  .pdf-guide-page .admin-connect-map .acm-col {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }

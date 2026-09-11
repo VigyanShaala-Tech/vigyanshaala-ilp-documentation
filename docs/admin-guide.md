@@ -13,6 +13,22 @@ Use **search** at the top, or choose a topic below.
 
 <div class="grid cards help-center-cards admin-guide" markdown>
 
+-   :material-book-alphabet:{ .lg .middle } **Glossary of Terms**
+
+    ---
+
+    Definitions for Studio, Section, Subsection, Unit, Cohort, Enrollment, and other Admin Guide terms.
+
+    [:octicons-arrow-right-24: Browse topics](admin/glossary.md)
+
+-   :material-sitemap:{ .lg .middle } **How tools connect**
+
+    ---
+
+    Map of every Admin Guide area with full names.
+
+    [:octicons-arrow-right-24: Browse topics](admin/admin-flow.md)
+
 -   :material-view-dashboard:{ .lg .middle } **Control Hub**
 
     ---

@@ -79,6 +79,14 @@
       },
     },
     admin: {
+      glossary: {
+        category: "Glossary of Terms",
+        categoryPath: "/admin/glossary/",
+      },
+      "admin-flow": {
+        category: "How tools connect",
+        categoryPath: "/admin/admin-flow/",
+      },
       "reach-control-hub": {
         category: "How to reach Control Hub",
         categoryPath: "/admin/categories/reach-control-hub/",

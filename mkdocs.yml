@@ -145,6 +145,8 @@ nav:
       - Profile & Support: android/categories/profile.md
   - Admin:
       - Help Center: admin-guide.md
+      - Glossary of Terms: admin/glossary.md
+      - How tools connect: admin/admin-flow.md
       - Control Hub: admin/control-hub.md
       - How to reach Control Hub: admin/categories/reach-control-hub.md
       - Dashboard: admin/categories/dashboard.md

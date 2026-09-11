@@ -83,13 +83,21 @@ def build_pdf(site_dir: Path, guide: dict | None = None, output: Path | None = N
         with sync_playwright() as playwright:
             try:
                 browser = playwright.chromium.launch(args=launch_args)
-            except Exception as exc:
-                raise RuntimeError(
-                    "Playwright Chromium is not installed. "
-                    "Run: python -m playwright install chromium"
-                ) from exc
-            page = browser.new_page()
-            page.goto(url, wait_until="load", timeout=300_000)
+            except Exception:
+                # Fall back to system Chrome when Playwright's bundled browser is missing
+                try:
+                    browser = playwright.chromium.launch(
+                        channel="chrome",
+                        args=launch_args,
+                    )
+                except Exception as exc:
+                    raise RuntimeError(
+                        "Playwright Chromium is not installed. "
+                        "Run: python -m playwright install chromium"
+                    ) from exc
+            # Desktop width so glossary tables and the tools map keep print layout
+            page = browser.new_page(viewport={"width": 1280, "height": 1600})
+            page.goto(url, wait_until="networkidle", timeout=300_000)
             page.evaluate("document.body.classList.add('pdf-guide-page')")
             page.evaluate("document.title = %s" % repr(guide["title"]))
             page.emulate_media(media="print")
@@ -110,6 +118,25 @@ def build_pdf(site_dir: Path, guide: dict | None = None, output: Path | None = N
                 }
                 """
             )
+            # Fail early if Glossary / How tools connect failed to inline into the admin PDF
+            if guide.get("page") == "download-admin-pdf":
+                missing = page.evaluate(
+                    """
+                    () => {
+                      const text = document.querySelector(".md-content")?.innerText || "";
+                      const miss = [];
+                      if (!text.includes("Where admins work")) miss.push("Glossary of Terms");
+                      if (!document.querySelector(".admin-connect-map")) miss.push("How tools connect");
+                      return miss;
+                    }
+                    """
+                )
+                if missing:
+                    raise RuntimeError(
+                        "Admin PDF source page is missing sections: "
+                        + ", ".join(missing)
+                        + ". Rebuild the site so download-admin-pdf includes those pages."
+                    )
             broken = page.evaluate(
                 """
                 () => [...document.querySelectorAll(".md-content img")]

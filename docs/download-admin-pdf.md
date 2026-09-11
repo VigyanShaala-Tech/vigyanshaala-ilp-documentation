@@ -11,7 +11,19 @@ title: VigyanShaala ILP — Admin Guide
 
 <p class="pdf-doc-title">VigyanShaala ILP — Admin Guide</p>
 
+<p class="pdf-kicker">Glossary of Terms</p>
+
+--8<-- "admin/glossary.md"
+
+<div class="pdf-section-start">
+<p class="pdf-kicker">How tools connect</p>
+</div>
+
+--8<-- "admin/admin-flow.md"
+
+<div class="pdf-section-start">
 <p class="pdf-kicker">Control Hub</p>
+</div>
 
 --8<-- "admin/reach-control-hub.md"
 

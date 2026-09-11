@@ -664,7 +664,7 @@ On the component, click the three-dot **Actions** menu: **Manage Access**, **Mov
 
 ## How to add Quick Quiz Maker {: #add-quick-quiz-maker }
 
-<p class="sr-search-terms">how to add quick quiz maker display name download template xlsx upload question file question grouping create individual questions combine all questions save</p>
+<p class="sr-search-terms">how to add quick quiz maker display name download template xlsx upload question file question grouping create individual questions combine all questions show advanced settings scoring points attempts unlimited attempts show answer show reset option randomization time between attempts save publish</p>
 
 **Quick Quiz Maker** lets you add many questions at once from an Excel file. Open a [unit](#create-unit). Under **Add a new component**, click **Advanced**.
 
@@ -710,6 +710,44 @@ Click **Choose File** and pick the completed **.xlsx** file. Only **.xlsx** file
 ![Question Grouping](../img/296-admin-studio-qqm-grouping.png)
 
 Click **Save**. **Cancel** closes without saving. After a successful save, the questions appear on the unit. **Quick Quiz Maker** itself is not shown to learners — they see the questions you uploaded.
+
+### Problem settings (after Save)
+
+Open a question on the unit (click the **pencil icon** on that problem). At the bottom of the editor, click **Show advanced settings**.
+
+![Show advanced settings](../img/390-admin-studio-qqm-show-advanced-settings.png)
+
+Use these settings to control points, attempts, answers, and related options for that problem. Values from your Excel file (for example **Problem Weight** and **Max Attempts**) may already fill some fields — you can change them here before you publish.
+
+**Scoring**
+
+**Scoring** sets how many points the problem is worth and how many times a learner may submit an answer.
+
+![Scoring](../img/391-admin-studio-qqm-scoring.png)
+
+- **Points** — how much this problem counts toward the grade. If empty, the problem is worth **1** point.
+- **Attempts** — how many times the learner may submit an answer. Example: **1** means one try only.
+- **Unlimited attempts** — tick this if learners may try as many times as they need. When this is on, the **Attempts** number does not limit them.
+- If **Attempts** is empty and no course default is set, unlimited attempts are allowed.
+- **Set a default value in advanced settings** — opens the course **Advanced Settings** page in a **new tab**, where you can set a default for all problems in this course. Close that tab when you are done and return to the problem editor.
+
+**Show answer** and **Show reset option**
+
+![Show answer and Show reset option](../img/392-admin-studio-qqm-show-answer-reset.png)
+
+- **Show answer** — when learners may see the correct answer. The dropdown lists options such as **Finished (Default)** (after they finish / use their attempts). Choose what fits your quiz.
+- **Show reset option** — **True** shows a **Reset** button so learners can clear their answer (useful for practice). **False** hides Reset (common for graded quizzes).
+
+**Randomization** and **Time between attempts**
+
+![Randomization and Time between attempts](../img/393-admin-studio-qqm-randomization-attempts-wait.png)
+
+- **Randomization** — how often problem values change for the learner. For most Quick Quiz Maker questions, leave this as **Never** unless you built Python-based randomization into the problem.
+- **Time between attempts** — seconds the learner must wait before submitting again when multiple attempts are allowed. Use **0** for no wait.
+
+Click **Save** on the problem editor when these settings are set. Repeat for each problem if you used **Create Individual Questions**.
+
+### Publish
 
 On the right, **RELEASE** may say **Unscheduled**. Click **Publish**. If the unit stays **Unscheduled** or **Draft (never published)**, learners will not see the questions in the course. Leave **Hide from learners** unchecked. Do not hide graded assignments after they have been released.
 
@@ -840,7 +878,7 @@ The same **Actions** menu is on PDF, Google Document, Quick Quiz Maker, Staff Gr
 
 ## How to upload Video {: #upload-video }
 
-<p class="sr-search-terms">how to upload video content videos add videos upload ready copy video id outline add new component paste video id save publish</p>
+<p class="sr-search-terms">how to upload video content videos add videos upload ready copy video id outline add new component paste video id save publish supported formats mp4 ogg webm hosting s3 youtube vimeo brightcove google drive sharepoint best practices 500 mb</p>
 
 Upload the video file in Studio first, wait until status is **Ready**, copy the **video ID**, then add a **Video** component on a unit and paste that ID.
 
@@ -915,6 +953,28 @@ In the **Video** box, paste the ID into **Video ID**.
 Click **Save**. **Cancel** or the **X** closes without saving.
 
 The video block appears on the unit. Open it and check that the video plays.
+
+**Supported formats**
+
+In the **Video** box, under **Video source**, you can use:
+
+- **Video ID** — the ID you copied after upload (see above)
+- **Video URL** — a YouTube URL, or a direct link to an **.mp4**, **.ogg**, or **.webm** video file hosted elsewhere on the internet
+
+![Video URL supported formats](../img/389-admin-studio-video-supported-formats.png)
+
+**Video hosting requirements**
+
+Videos you upload with **Content** → **Videos** are hosted on the platform’s **S3** storage.
+
+- **YouTube** — if the video is already on YouTube, you can paste the YouTube URL in **Video URL**. You do not need to upload the file again.
+- **Other hosts** (for example **Vimeo**, **Brightcove**, **Google Drive**, **Microsoft SharePoint**) — download the video to your computer first, then upload it here with **Content** → **Videos**. Do not paste only a Drive or SharePoint share link into **Video URL**; use a direct **.mp4**, **.ogg**, or **.webm** file URL, or upload via **Videos** and paste the **Video ID**.
+
+**Video settings and best practices**
+
+- Recommended file size is **less than 500 MB**
+- Prefer **.mp4** format
+- If the file is larger than that, split it into two (or more) shorter videos and upload each one separately
 
 ### Publish
 
